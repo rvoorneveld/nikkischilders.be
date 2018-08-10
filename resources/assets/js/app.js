@@ -6,17 +6,16 @@
  */
 
 require('./bootstrap');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
+require('./aram/bootstrap.min');
+require('./aram/owl.carousel.min.js');
+require('./aram/wow.js');
+require('./aram/jquery.easing.min.js');
+require('./aram/jquery.mixitup.js');
+require('./aram/jquery.counterup.min.js');
+require('./aram/lightbox.js');
+require('./aram/datetime.js');
+require('./aram/waypoints.min.js');
+require('./aram/jquery.meanmenu.js');
+require('./aram/plugins.js');
+require('./aram/ajax-mail.js');
+require('./aram/main.js');
