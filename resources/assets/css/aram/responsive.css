@@ -66,6 +66,7 @@
 	z-index: 9999999;
 	width: 146px;
 	margin-top: 0px;
+        line-height: 3rem;
     }
     .main-navigation {
 	position: inherit;
@@ -428,7 +429,7 @@
         margin-left: 0px;
     }
     .navbar-toggle .icon-bar {
-        background: #F880B4 none repeat scroll 0 0;
+        background: var(--color-primary) none repeat scroll 0 0;
     }
     .banner {
         padding-top: 0px;
@@ -507,6 +508,7 @@
 	z-index: 9999999;
 	width: 146px;
 	margin-top: 0px;
+        line-height: 3rem;
     }
     .main-navigation {
 	position: inherit;
@@ -575,7 +577,7 @@
     }
     .mixitup-button li.active {
 	background: #fff;
-	color: #F880B4;
+	color: var(--color-primary);
     }
     .mixitup-button {
 	padding: 0px 15px;

@@ -31,10 +31,6 @@ body {
     max-width: 100%;
     transition: all 0.3s ease-out 0s;
 }
-a,button{
-	font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-}
 a,
 .btn {
     -webkit-transition: all 0.3s ease-out 0s;
@@ -57,7 +53,7 @@ a:hover {
 a,
 button {
     outline: medium none;
-    color: #F880B4;
+    color: var(--color-primary);
 }
 .uppercase { 
     text-transform: uppercase
@@ -71,13 +67,12 @@ h3,
 h4,
 h5,
 h6 {
-    
-   font-family: 'Raleway', sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: normal;
-    color: #363636;
+    color: var(--color-primary);
     margin-top: 0px;
     font-style: normal;
-    font-weight: bold;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 h1 a,
 h2 a,
@@ -139,22 +134,22 @@ label {
     color: #626262;
 }
 *::-moz-selection {
-    background: #6bc513;
+    background: var(--color-quaternary);
     color: #fff;
     text-shadow: none;
 }
 ::-moz-selection {
-    background: #6bc513;
+    background: var(--color-quaternary);
     color: #fff;
     text-shadow: none;
 }
 ::selection {
-    background: #6bc513;
+    background: var(--color-quaternary);
     color: #fff;
     text-shadow: none;
 }
 .mark, mark {
-    background: #6bc513 none repeat scroll 0 0;
+    background: var(--color-quaternary) none repeat scroll 0 0;
     color: #ffffff;
 }
 .float-left {

@@ -13,6 +13,7 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .styles([
+        'resources/assets/css/colors.css',
         'resources/assets/css/aram/bootstrap.min.css',
         'resources/assets/css/aram/flaticon.css',
         'resources/assets/css/aram/animate.css',
@@ -22,10 +23,10 @@ mix.js('resources/assets/js/app.js', 'public/js')
         'resources/assets/css/aram/plugins/owl.theme.css',
         'resources/assets/css/aram/plugins/owl.carousel.css',
         'resources/assets/css/aram/plugins/owl.transitions.css',
+        'resources/assets/css/aram/style.css',
         'resources/assets/css/aram/default.css',
         'resources/assets/css/aram/lightbox.css',
         'resources/assets/css/aram/meanmenu.css',
         'resources/assets/css/aram/date-picker.css',
-        'resources/assets/css/aram/style.css',
         'resources/assets/css/aram/responsive.css',
    ], 'public/css/app.css');

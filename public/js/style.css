@@ -45,11 +45,12 @@ img{max-width: 100%}
 
 .mb-30{margin-bottom: 30px!important;}
 .bg-color-1{background: #f6f8fa}
-.navbar .navbar-nav > li > a {
-    background-color: transparent
+.navbar .navbar-nav li:hover > a,.navbar .navbar-nav li.active a{
+    background-color: transparent;
+    color: #F880B4 ;
 }
-.navbar .navbar-nav li:hover > a, .navbar .navbar-nav li.active a{
-    color: var(--color-tertiary);
+.navbar .navbar-nav > li > a:focus {
+    background-color: transparent
 }
 .navbar-brand {
     padding: 0px;
@@ -82,7 +83,6 @@ img{max-width: 100%}
     box-shadow: 0 2px 10px -1px rgba(87, 97, 100, 0.35);
 }
 .logo {
-    line-height:5.5rem;
 	padding: 12px 0px;
 	display: inline-block;
 }
@@ -120,16 +120,16 @@ img{max-width: 100%}
 }
 .appointment-button a {
   padding: 6px 13px;
-  color: var(--color-text-secundary);
-  background: var(--color-primary);
+  color: #fff;
+  background: #F880B4;
   float: right;
-  border: 1px solid var(--color-primary);
+  border: 1px solid #F880B4;
   border-radius: 20px;
 }
 .appointment-button a:hover {
-	background: var(--color-tertiary);
-	color: var(--color-text-secundary);
-	border: 1px solid var(--color-tertiary);
+	background: #fff;
+	color: #F880B4 ;
+	border: 1px solid #F880B4 ;
 }
 .appointment-button i {
 	margin-right: 9px;
@@ -165,11 +165,10 @@ img{max-width: 100%}
 /*-------------------
     03. slider css here
 -----------------------*/
-.photo-overlay--text {
-    color: var(--color-text-secundary) !important;
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.7);
-}
 
+.slider-1{background-image:url(images/banner/1.jpg);}
+.slider-2{background-image:url(images/banner/2.jpg);}
+.slider-3{background-image:url(images/banner/3.jpg);}
 .banner {
 	width: 100%;
 	height: auto;
@@ -184,7 +183,7 @@ img{max-width: 100%}
   background-repeat:no-repeat;
 }
 .banner h1 {
-	color: var(--color-primary);
+	color: #F880B4;
 	margin: 0 0 25px;
 	font-size: 60px;
 	font-weight: 700;
@@ -277,7 +276,7 @@ img{max-width: 100%}
   right:10px;
 }
 .btn-primary, .btn-primary:focus, .btn-primary:active {
-  background: var(--color-primary) none repeat scroll 0 0;
+  background: #F880B4 none repeat scroll 0 0;
   color: #fff;
   display: inline-block;
   font-size: 14px;
@@ -315,17 +314,17 @@ padding-top: 100px;
   text-transform: capitalize;
 }
 a.rounded-btn {
-  border: 1px solid var(--color-primary);
+  border: 1px solid #F880B4;
   border-radius: 29px;
   display: inline-block;
   font-weight: 600;
   margin-top: 7px;
   padding: 9px 25px;
-  color: var(--color-primary);
+  color: #F880B4;
   text-transform: uppercase;
 }
 a.rounded-btn:hover {
-    background: var(--color-primary) ;
+    background: #F880B4 ;
     color: #fff
 }
 .about-desc p.text-2 {
@@ -335,7 +334,7 @@ a.rounded-btn:hover {
 	width: 100%;
 }
 .about-carousel.owl-theme .owl-controls .owl-buttons div {
-	background: var(--color-primary) none repeat scroll 0 0;
+	background: #F880B4 none repeat scroll 0 0;
 	border: 0px solid;
 	border-radius: 16px;
 	color: #fff;
@@ -380,7 +379,7 @@ a.rounded-btn:hover {
     z-index: 9999
 }
 .img-wrapper img {
-	border: 12px solid var(--color-primary);
+	border: 12px solid #F880B4;
 }
 
 .sin-service {
@@ -412,7 +411,7 @@ color: #555;
      -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
-.sin-service:hover{background: var(--color-primary) }
+.sin-service:hover{background: #F880B4 }
 .sin-service:hover h3{color: #fff}
 .sin-service:hover p{color: #fff}
 .sin-service:hover .ser-icon i{color: #fff }
@@ -439,7 +438,7 @@ color: #555;
     06. Fun fact css here
 --------------------*/
 .fun-fact {
-    background: url('/images/bg/hand.jpg');
+    background: url(images/bg/hand.jpg);
     background-size: cover;
     background-attachment: fixed;
     position: relative;
@@ -492,7 +491,7 @@ color: #555;
   text-transform: uppercase;
 }
 .section-title h2:before {
-  background: var(--color-primary)  none repeat scroll 0 0;
+  background: #F880B4  none repeat scroll 0 0;
   bottom: -30px;
   content: "";
   height: 1px;
@@ -508,7 +507,7 @@ color: #555;
 .section-title h2::after {
   background: #fff none repeat scroll 0 0;
   bottom: -38px;
-  color: var(--color-primary);
+  color: #F880B4;
   content: "\f119";
   font-family: Flaticon;
   left: 50%;
@@ -547,12 +546,12 @@ color: #555;
     -moz-transition: all 0.3s linear;
 }
 .mixitup-button li:hover {
-    color: var(--color-primary) ;
+    color: #F880B4 ;
 }
 .mixitup-button li.active {
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
-    background: var(--color-primary);
+    background: #F880B4;
 	color: #fff;
 }
 .mixitup-content {
@@ -640,7 +639,7 @@ color: #555;
 /*-----------------------
     08. Feature css here
 ---------------------------*/
-.pink{color: var(--color-primary) }
+.pink{color: #F880B4 }
 .feature-img img {
   
   -webkit-transition: all 0.5s ease 0s;
@@ -659,7 +658,7 @@ color: #555;
      padding-top: 25px;
 }
 .feature-desc h3 a{
-  font-weight: 700;color: var(--color-primary)
+  font-weight: 700;color: #F880B4
 }
 .feature-desc h3 a:hover{
   color: #F90870;
@@ -684,7 +683,7 @@ color: #555;
   color: #FEFEFE;
   font-size: 16px;
   font-weight: 400;
-  background: var(--color-primary);
+  background: #f880b4;
   text-align: left;
   display: inline-block;
   padding: 7px 10px;
@@ -710,7 +709,7 @@ color: #555;
   font-size: 15px;
 }
 .single-testimonial > p i {
-    color: var(--color-quaternary);
+    color: #6bc513;
     font-size: 30px;
 }
 .tes-img {
@@ -718,7 +717,7 @@ color: #555;
 	margin-bottom: 25px;
 }
 .tes-img img {
-  border: 2px solid var(--color-primary);
+  border: 2px solid #F880B4;
   border-radius: 100px;
   width: 70px;
 }
@@ -731,7 +730,7 @@ color: #555;
   text-align: center;
 }
 .single-testimonial > h3 {
-  color: var(--color-primary);
+  color: #f880b4;
   font-size: 16px;
   font-weight: 600;
   margin: 0;
@@ -745,14 +744,14 @@ color: #555;
 }
 .owl-theme .owl-controls .owl-page span {
   background: #fff none repeat scroll 0 0;
-  border: 2px solid var(--color-primary);
+  border: 2px solid #F880B4;
   height: 16px;
   opacity: 1;
   width: 16px;
   margin: 0 7px;
 }
 .owl-theme .owl-controls .owl-page.active span {
-   background: var(--color-primary) none repeat scroll 0 0;
+   background: #F880B4 none repeat scroll 0 0;
 }
 .testimonial .section-title h2::after {
 	background: #f6f8fa none repeat scroll 0 0;
@@ -874,10 +873,10 @@ color: #555;
     text-align: center;
 }
 .sin-blog:hover .sin-blog-det h3 a {
-    color: var(--color-primary)
+    color: #F880B4 
 }
 .readmore:hover {
-    color: var(--color-primary)
+    color: #F880B4 
 }
 .btn.submit-btn.btn-primary.blog-btn {
 border-radius: 25px;
@@ -892,6 +891,7 @@ padding: 10px 20px;
 
 .fixed-bg-wrapper {
     background-attachment: fixed;
+    background-image: url("images/bg/offer-bg.jpg");
     background-size: cover;
     padding: 100px 0;
     position: relative;
@@ -915,7 +915,7 @@ padding: 10px 20px;
   text-transform: capitalize;
 }
 .fixed-bg a {
-    background: var(--color-primary)  none repeat scroll 0 0;
+    background: #F880B4  none repeat scroll 0 0;
     color: #fff;
 	border-radius: 25px;
 	display: inline-block;
@@ -927,7 +927,7 @@ padding: 10px 20px;
 .fixed-bg a:hover {
     
     background: #fff;
-    color: var(--color-primary) ;
+    color: #F880B4 ;
 }
 .fixed-bg {
     width: 60%;
@@ -1000,9 +1000,9 @@ btn.submit-btn:hover {
 }
 .add-icon i {
 	font-size: 21px;
-	color: var(--color-primary);
+	color: #F880B4;
 }
-.contact-wraper form input:active,.contact-wraper form input:focus,.contact-wraper form textarea:active,.contact-wraper form textarea:focus{border: 1px solid var(--color-primary);background: #fff }
+.contact-wraper form input:active,.contact-wraper form input:focus,.contact-wraper form textarea:active,.contact-wraper form textarea:focus{border: 1px solid #F880B4;background: #fff }
 .form-messege.success {
 	margin-left: 15px;
 	padding-top: 15px;
@@ -1088,7 +1088,7 @@ btn.submit-btn:hover {
     margin-bottom: 5px;
 }
 .mail-send {
-  background: var(--color-primary) none repeat scroll 0 0;
+  background: #f880b4 none repeat scroll 0 0;
   border: medium none;
   border-radius: 52px;
   color: #ffffff;
@@ -1148,7 +1148,7 @@ btn.submit-btn:hover {
     15. scrollup css here
 ----------------------*/
 #scrollUp {
-    background: var(--color-primary) ;
+    background: #F880B4 ;
     bottom: 45px;
     color: #ffffff;
     cursor: pointer;
@@ -1179,7 +1179,7 @@ btn.submit-btn:hover {
 
 .breadcrumb {
     position: relative;
-	background: url('/images/bg/ser.jpg') no-repeat;
+	background: url(images/bg/ser.jpg) no-repeat;
 	background-position: center;
 	background-size: cover;
 	margin-top: 60px;
@@ -1237,7 +1237,7 @@ btn.submit-btn:hover {
     -moz-transition: all 0.5s ease 0s;
 }
 .sin-team:hover .sin-team-det {
-	background: var(--color-primary);
+	background: #F880B4;
 	color: #fff;
 }
 .sin-team-img {
@@ -1271,7 +1271,7 @@ btn.submit-btn:hover {
     position: relative;
 }
 .team-social > a {
-	background: var(--color-primary) none repeat scroll 0 0;
+	background: #F880B4 none repeat scroll 0 0;
 	border-radius: 53px;
 	color: #fff;
 	display: inline-block;
@@ -1354,8 +1354,8 @@ select {
 
 .qbuuton {
   background: #FFF none repeat scroll 0 0;
-  border-radius: 22px;
-  color: var(--color-primary);
+  border-radius: 0px;
+  color: #f880b4;
   display: inline-block;
   font-size: 13px;
   margin-top: 4px;
@@ -1378,7 +1378,7 @@ select {
 
 .qbuuton:hover {
   color: #ffffff !important;
-  background: var(--color-primary);
+  background: #f880b4;
 }
 .datetimepicker, .datetimepicker:focus,input,input:focus{
 	border: 1px solid #fff;
@@ -1412,7 +1412,7 @@ select {
   margin-right: 15px;
 }
 .service-page .sin-service:hover {
-	background: var(--color-primary);
+	background: #F880B4;
 }
 .service-two {
 	background: #f9f9f9;
@@ -1420,7 +1420,7 @@ select {
 	border-top: 1px solid #e4e4e4;
 }
 .sinp-service h3 {
-	color: var(--color-primary) ;
+	color: #F880B4 ;
 	text-align: center;
 	font-weight: 500;
 	padding-top: 20px;
@@ -1455,8 +1455,8 @@ select {
 .rate {
   display: block;
   overflow: hidden;
-  border-bottom: 1px dotted var(--color-primary);
-  border-top: 1px dotted var(--color-primary);
+  border-bottom: 1px dotted #f880b4;
+  border-top: 1px dotted #f880b4;
   padding-top: 5px;
   margin-top: 37px;
   padding: 0 25px;
@@ -1641,7 +1641,7 @@ text-transform: uppercase;
 	margin-top: 5px;
 }
 .sin-widget span {
-	color: var(--color-primary) ;
+	color: #F880B4 ;
 	font-size: 13px !important;
 }
 .sin-widget {
@@ -1651,8 +1651,8 @@ text-transform: uppercase;
   padding-top: 40px;
 }
 .search-box .btn-default,.search-box .btn-default:hover {
-	background-color: var(--color-primary) ;
-	border-color: var(--color-primary) ;
+	background-color: #F880B4 ;
+	border-color: #F880B4 ;
 	color: #fff;
 	font-size: 19px;
 }
@@ -1670,7 +1670,7 @@ text-transform: uppercase;
 
 }
 blockquote {
-	border-left: 5px solid var(--color-primary) ;
+	border-left: 5px solid #F880B4 ;
 }
 
 /*-------------------
@@ -1683,14 +1683,14 @@ blockquote {
   font-style: italic;
 }
 .table-body ul li:nth-child(2n) {
-  background: var(--color-tertiary);
+  background: #FCCCE1;
 }
 .table-body ul li a, .table-body ul li span {
 	float: right;
-	color: var(--color-primary) ;
+	color: #F880B4 ;
 }
 .table-header {
-  background: var(--color-primary);
+  background: #F880B4;
   color: #ffffff;
   font-size: 15px;
   font-weight: 600;
@@ -1704,13 +1704,13 @@ blockquote {
 }
 .sin-pricelist {
 	position: relative;
-	border: 1px solid var(--color-primary);
+	border: 1px solid #F880B4;
 	margin-bottom: 58px;
 }
 .book {
 	height: 86px;
 	width: 86px;
-	background: var(--color-primary) ;
+	background: #F880B4 ;
 	text-align: center;
 	border-radius: 90px;
 	margin: 0 auto;
@@ -1718,11 +1718,11 @@ blockquote {
 	margin-bottom: -57px;
     -webkit-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
-    border: 2px solid var(--color-primary);
+    border: 2px solid #F880B4;
 }
 .book:hover {
     background: #fff;
-    border: 2px solid var(--color-primary);
+    border: 2px solid #F880B4;
 
 }
 
@@ -1732,7 +1732,7 @@ blockquote {
 	display: block;
 }
 .book:hover a {
-	color: var(--color-primary);
+	color: #F880B4;
 }
 /*module css*/
 
@@ -1744,7 +1744,7 @@ blockquote {
 	transition: all 0.3s ease 0s;
 	z-index: 2;
 	opacity: 1;
-	background-image: url('/images/cross.png');
+	background-image: url('images/cross.png');
 	text-indent: -999999px;
 }
 #productModal button.close span {
@@ -1790,7 +1790,7 @@ blockquote {
 }
 
 .spinner>.single_rect {
-    background-color: var(--color-primary);
+    background-color: #F880B4;
     height: 100%;
     width: 6px;
     display: inline-block;
