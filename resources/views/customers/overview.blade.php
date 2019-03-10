@@ -3,8 +3,8 @@
 @section('content')
 
     <div class="d-flex align-items-start">
-        <h1>Customers</h1>
-        <a class="ml-auto btn btn-primary" href="{{ route('customers.create') }}">Add customer</a>
+        <h1>{{ __('customer.title') }}</h1>
+        <a class="ml-auto btn btn-primary" href="{{ route('customers.create') }}">{{ __('customer.add') }}</a>
     </div>
 
 
@@ -13,14 +13,14 @@
         <tr>
             <td>{{ $customer->id }}</td>
             <td>
-                <a title="{{ $customer->getName() }}" href="{{ $customer->getPath() }}">
-                    {{ $customer->getName() }}
+                <a title="{{ $name = $customer->getName() }}" href="{{ $customer->getPath() }}">
+                    {{ $name }}
                 </a>
             </td>
         </tr>
         @empty
         <tr>
-            <td colspan="2">No customers to display.</td>
+            <td colspan="2">{{ __('customer.noResults') }}</td>
         </tr>
     @endforelse
     </table>

@@ -22,6 +22,10 @@
             <file>./app/Customer.php</file>
             <file>./app/Http/Controllers/CustomersController.php</file>
             <file>./app/Repositories/CustomersRepository.php</file>
+
+            <file>./app/Treatment.php</file>
+            <file>./app/Http/Controllers/TreatmentsController.php</file>
+            <file>./app/Repositories/TreatmentsRepository.php</file>
         </whitelist>
     </filter>
     <php>

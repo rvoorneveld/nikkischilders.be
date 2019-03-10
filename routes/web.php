@@ -25,4 +25,10 @@ Route::group(['middleware' => 'auth',], function() {
     Route::get('/customers/{customer}', 'CustomersController@edit');
     Route::post('/customers', 'CustomersController@store');
     Route::put('customers/{customer}', 'CustomersController@update');
+
+    Route::get('/treatments', 'TreatmentsController@index')->name('treatments');
+    Route::get('/treatments/create', 'TreatmentsController@create')->name('treatments.create');
+    Route::get('/treatments/{treatment}', 'TreatmentsController@edit');
+    Route::post('/treatments', 'TreatmentsController@store');
+    Route::put('treatments/{treatment}', 'TreatmentsController@update');
 });

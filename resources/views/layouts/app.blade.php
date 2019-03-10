@@ -34,7 +34,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('customers') }}">{{ __('Customers') }}</a>
+                            <a class="nav-link" href="{{ route('customers') }}">{{ __('customer.title') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('treatments') }}">{{ __('treatment.title') }}</a>
                         </li>
                     </ul>
 
@@ -75,6 +78,17 @@
         </nav>
 
         <main class="container py-4">
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             @yield('content')
         </main>
     </div>
