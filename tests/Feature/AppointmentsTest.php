@@ -2,93 +2,93 @@
 
 namespace Tests\Feature;
 
-use App\Treatment;
+use App\Appointment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class TreatmentsTest extends TestCase
+class AppointmentsTest extends TestCase
 {
 
     use RefreshDatabase, WithFaker;
 
-    public function testUnauthorizedUsersAreUnableToManageTreatments(): void
+    public function testUnauthorizedUsersAreUnableToManageAppointments(): void
     {
-        $response = $this->get('/treatments');
+        $response = $this->get('/appointments');
         $response->assertStatus(302)->assertRedirect('login');
     }
 
-    public function testAuthorizedUsersAreAbleToManageTreatments(): void
+    public function testAuthorizedUsersAreAbleToManageAppointments(): void
     {
         $this->signIn();
-        $response = $this->get('/treatments');
+        $response = $this->get('/appointments');
         $response->assertStatus(200);
     }
 
-    public function testTreatmentsOverviewShowsFeedbackWhenNoTreatmentsPresent(): void
+    public function testAppointmentsOverviewShowsFeedbackWhenNoAppointmentsPresent(): void
     {
         $this->signIn();
-        $response = $this->get('/treatments');
-        $response->assertSee('No treatments to display');
+        $response = $this->get('/appointments');
+        $response->assertSee('No appointments to display');
     }
 
-    public function testTreatmentsOverviewShowsAll(): void
+    public function testAppointmentsOverviewShowsAll(): void
     {
         $this->signIn();
-        $treatmentOne = factory(Treatment::class)->create([
+        $appointmentOne = factory(Appointment::class)->create([
             'title' => 'Foo',
         ]);
 
-        $treatmentTwo = factory(Treatment::class)->create([
+        $appointmentTwo = factory(Appointment::class)->create([
             'title' => 'Bar',
         ]);
 
-        $response = $this->get('/treatments');
+        $response = $this->get('/appointments');
         $response->assertStatus(200);
-        $response->assertSee($treatmentOne->getTitle());
-        $response->assertSee($treatmentTwo->getTitle());
+        $response->assertSee($appointmentOne->getTitle());
+        $response->assertSee($appointmentTwo->getTitle());
     }
 
-    public function testTreatmentCanBeCreated(): void
+    public function testAppointmentCanBeCreated(): void
     {
         $this->signIn();
-        $response = $this->get(route('treatments.create'));
+        $response = $this->get(route('appointments.create'));
         $response->assertStatus(200);
 
-        $response = $this->post(route('treatments'), [
+        $response = $this->post(route('appointments'), [
             'title' => $firstName = $this->faker->sentence,
             'description' => $lastName = $this->faker->paragraph,
             'price' => $this->faker->randomFloat(2),
         ]);
-        $response->assertRedirect(route('treatments'));
+        $response->assertRedirect(route('appointments'));
     }
 
-    public function testTreatmentDetailsCanBeViewed(): void
+    public function testAppointmentDetailsCanBeViewed(): void
     {
         $this->signIn();
-        $treatment = factory(Treatment::class)->create();
+        $appointment = factory(Appointment::class)->create();
 
-        $response = $this->get($treatment->getPath());
+        $response = $this->get($appointment->getPath());
         $response->assertStatus(200);
-        $response->assertSee($treatment->getTitle());
+        $response->assertSee($appointment->getTitle());
     }
 
-    public function testTreatmentDetailsCanBeEdited(): void
+    public function testAppointmentDetailsCanBeEdited(): void
     {
         $this->signIn();
-        $treatment = factory(Treatment::class)->create();
+        $appointment = factory(Appointment::class)->create();
 
-        $response = $this->put($treatment->getPath(), array_only($treatment->getAttributes(), [
+        $response = $this->put($appointment->getPath(), array_only($appointment->getAttributes(), [
             'title',
             'description',
             'price',
         ]));
 
-        $response->assertRedirect($treatmentsRoute = route('treatments'));
+        $response->assertRedirect($appointmentsRoute = route('appointments'));
 
-        $response = $this->get($treatmentsRoute);
+        $response = $this->get($appointmentsRoute);
         $response->assertStatus(200);
-        $response->assertSee($treatment->getTitle());
+        $response->assertSee($appointment->getTitle());
     }
 
 }
