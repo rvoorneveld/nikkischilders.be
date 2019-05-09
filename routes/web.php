@@ -37,4 +37,10 @@ Route::group(['middleware' => 'auth',], function() {
     Route::get('/appointments/{appointment}', 'AppointmentsController@edit');
     Route::post('/appointments', 'AppointmentsController@store');
     Route::put('appointments/{appointment}', 'AppointmentsController@update');
+
+    Route::get('/availabilities', 'AvailabilitiesController@index')->name('availabilities');
+    Route::get('/availabilities/create', 'AvailabilitiesController@create')->name('availabilities.create');
+    Route::get('/availabilities/{availability}', 'AvailabilitiesController@edit');
+    Route::post('/availabilities', 'AvailabilitiesController@store');
+    Route::put('availabilities/{availability}', 'AvailabilitiesController@update');
 });

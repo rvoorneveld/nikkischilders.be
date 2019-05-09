@@ -4,7 +4,6 @@ namespace Tests\Unit\Repositories;
 
 use App\Appointment;
 use App\Repositories\AppointmentsRepository;
-use Faker\Provider\DateTime;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;

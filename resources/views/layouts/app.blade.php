@@ -42,6 +42,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('treatments') }}">{{ __('treatment.title') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('availabilities') }}">{{ __('availability.title') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

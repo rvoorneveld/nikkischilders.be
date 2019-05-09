@@ -52,17 +52,16 @@ class AppointmentsTest extends TestCase
 
         $this->get(route('appointments.create'))->assertStatus(200);
 
-        $this->post(route('appointments'), [
+        $this->post(route($route = 'appointments'), [
             'customer_id' => $id = $this->faker->numberBetween(),
             'treatment_id' => $id,
             'dateTimeStart' => $dateTime = $this->faker->dateTime,
             'dateTimeEnd' => $dateTime,
-        ])->assertRedirect(route('appointments'));
+        ])->assertRedirect(route($route));
     }
 
     public function testAppointmentDetailsCanBeViewed(): void
     {
-        $this->withoutExceptionHandling();
         $this->signIn();
         $appointment = factory(Appointment::class)->create();
 
@@ -73,7 +72,6 @@ class AppointmentsTest extends TestCase
 
     public function testAppointmentDetailsCanBeEdited(): void
     {
-        $this->withoutExceptionHandling();
         $this->signIn();
         $appointment = factory(Appointment::class)->create();
 
