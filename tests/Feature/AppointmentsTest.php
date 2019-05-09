@@ -35,60 +35,59 @@ class AppointmentsTest extends TestCase
     public function testAppointmentsOverviewShowsAll(): void
     {
         $this->signIn();
-        $appointmentOne = factory(Appointment::class)->create([
-            'title' => 'Foo',
-        ]);
-
-        $appointmentTwo = factory(Appointment::class)->create([
-            'title' => 'Bar',
-        ]);
+        $appointmentOne = factory(Appointment::class)->create();
+        $appointmentTwo = factory(Appointment::class)->create();
 
         $response = $this->get('/appointments');
         $response->assertStatus(200);
-        $response->assertSee($appointmentOne->getTitle());
-        $response->assertSee($appointmentTwo->getTitle());
+        $response->assertSee($appointmentOne->id);
+        $response->assertSee($appointmentOne->getDateTimeStart());
+        $response->assertSee($appointmentTwo->id);
+        $response->assertSee($appointmentTwo->getDateTimeStart());
     }
 
     public function testAppointmentCanBeCreated(): void
     {
         $this->signIn();
-        $response = $this->get(route('appointments.create'));
-        $response->assertStatus(200);
 
-        $response = $this->post(route('appointments'), [
-            'title' => $firstName = $this->faker->sentence,
-            'description' => $lastName = $this->faker->paragraph,
-            'price' => $this->faker->randomFloat(2),
-        ]);
-        $response->assertRedirect(route('appointments'));
+        $this->get(route('appointments.create'))->assertStatus(200);
+
+        $this->post(route('appointments'), [
+            'customer_id' => $id = $this->faker->numberBetween(),
+            'treatment_id' => $id,
+            'dateTimeStart' => $dateTime = $this->faker->dateTime,
+            'dateTimeEnd' => $dateTime,
+        ])->assertRedirect(route('appointments'));
     }
 
     public function testAppointmentDetailsCanBeViewed(): void
     {
+        $this->withoutExceptionHandling();
         $this->signIn();
         $appointment = factory(Appointment::class)->create();
 
-        $response = $this->get($appointment->getPath());
-        $response->assertStatus(200);
-        $response->assertSee($appointment->getTitle());
+        $this->get($appointment->getPath())
+             ->assertStatus(200)
+             ->assertSee("#{$appointment->id}");
     }
 
     public function testAppointmentDetailsCanBeEdited(): void
     {
+        $this->withoutExceptionHandling();
         $this->signIn();
         $appointment = factory(Appointment::class)->create();
 
-        $response = $this->put($appointment->getPath(), array_only($appointment->getAttributes(), [
-            'title',
-            'description',
-            'price',
-        ]));
+        $this->put($appointment->getPath(), array_only($appointment->getAttributes(), [
+            'customer_id',
+            'treatment_id',
+            'dateTimeStart',
+            'dateTimeEnd',
+        ]))->assertRedirect($appointmentsRoute = route('appointments'));
 
-        $response->assertRedirect($appointmentsRoute = route('appointments'));
-
-        $response = $this->get($appointmentsRoute);
-        $response->assertStatus(200);
-        $response->assertSee($appointment->getTitle());
+        $this->get($appointmentsRoute)
+             ->assertStatus(200)
+             ->assertSee($appointment->id)
+             ->assertSee($appointment->getDateTimeStart());
     }
 
 }

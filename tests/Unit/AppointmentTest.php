@@ -31,8 +31,8 @@ class AppointmentTest extends TestCase
 
         $this->assertSame($customerId, $appointment->customer()->first()->id);
         $this->assertSame($treatmentId, $appointment->treatment()->first()->id);
-        $this->assertSame($dateTimeStart, $appointment->getDateTimeStart());
-        $this->assertSame($dateTimeEnd, $appointment->getDateTimeEnd());
+        $this->assertSame($dateTimeStart->format($dateFormat = 'Y-m-d H:i:s'), $appointment->getDateTimeStart()->toDateTimeString());
+        $this->assertSame($dateTimeEnd->format($dateFormat), $appointment->getDateTimeEnd()->toDateTimeString());
     }
 
     public function testAppointmentPathCanBeRetrievedByMethod(): void

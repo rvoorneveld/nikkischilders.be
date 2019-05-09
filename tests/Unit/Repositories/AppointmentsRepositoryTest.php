@@ -26,8 +26,7 @@ class AppointmentsRepositoryTest extends TestCase
 
         $appointments = (new AppointmentsRepository())->getAllOrderedByDateTimeStartDescending();
 
-        dd($expected, $appointments->last()->getDateTimeStart());
-        $this->assertSame($expected, $appointments->first()->getDateTimeStart());
+        $this->assertSame($expected->format('Y-m-d H:i:s'), $appointments->first()->getDateTimeStart()->toDateTimeString());
     }
 
 }
