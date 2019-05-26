@@ -6,6 +6,28 @@
     <form method="POST" action="{{ $overviewRoute = route('availabilities') }}">
         @csrf
 
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dateTime">{{ __('shared.start') }}</label>
+                <input type="text" class="form-control" name="dateTime" id="dateTime" value="">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="minutes">{{ __('shared.duration') }}</label>
+                <select class="form-control" name="minutes" id="minutes">
+                    <option value="30">30 {{ __('shared.minutes') }}</option>
+                    <option value="60">1 {{ __('shared.hour') }}</option>
+                    <option value="90">90 {{ __('shared.minutes') }}</option>
+                    <option value="120">2 {{ __('shared.hours') }}</option>
+                    <option value="150">150 {{ __('shared.minutes') }}</option>
+                    <option value="180">3 {{ __('shared.hours') }}</option>
+                    <option value="210">210 {{ __('shared.minutes') }}</option>
+                    <option value="240">4 {{ __('shared.hours') }}</option>
+                </select>
+            </div>
+        </div>
+
         <div class="field">
             <div class="control">
                 <button type="submit" class="btn btn-primary">{{ __('shared.add') }}</button>

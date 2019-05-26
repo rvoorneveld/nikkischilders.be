@@ -43,11 +43,21 @@ class AvailabilitiesController extends Controller
 
     public function store()
     {
-        Availability::create(request()->validate([
+        $validated = request()->validate([
             'dateTime' => 'required',
-        ]));
+            'minutes' => 'required|numeric'
+        ]);
+
+        for ($i = 1; $i <= $this->getNumberOfSlots($validated['minutes']); $i++) {
+            Availability::create(array_only($validated, 'dateTime'));
+        }
 
         return redirect(route('availabilities'));
+    }
+
+    private function getNumberOfSlots(int $minutes): int
+    {
+        return $minutes / Availability::DURATION_MINUTES;
     }
 
 }
