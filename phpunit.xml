@@ -19,6 +19,10 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
+            <file>./app/Appointment.php</file>
+            <file>./app/Http/Controllers/AppointmentsController.php</file>
+            <file>./app/Repositories/AppointmentsRepository.php</file>
+
             <file>./app/Customer.php</file>
             <file>./app/Http/Controllers/CustomersController.php</file>
             <file>./app/Repositories/CustomersRepository.php</file>

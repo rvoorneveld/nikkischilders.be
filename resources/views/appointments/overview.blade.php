@@ -13,9 +13,16 @@
         <tr>
             <td>{{ $appointment->id }}</td>
             <td>
-                <a title="{{ $title = $appointment->getDateTimeStart() }}" href="{{ $appointment->getPath() }}">
-                    {{ $title }}
+                <!--  //$date = $appointment->availability->getDateTimeStart() -->
+                <a title="{{ $date = 'Date from availability' }}" href="{{ $appointment->getPath() }}">
+                    {{ $date }}
                 </a>
+            </td>
+            <td>
+                {{ $appointment->customer->getName() }}
+            </td>
+            <td>
+                {{ $appointment->treatment->getTitle() }}
             </td>
         </tr>
         @empty

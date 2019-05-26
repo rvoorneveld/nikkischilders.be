@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Appointment;
+use App\Availability;
 use App\Customer;
 use App\Treatment;
 use Tests\TestCase;
@@ -14,32 +15,42 @@ class AppointmentTest extends TestCase
 
     use RefreshDatabase, WithFaker;
 
-    public function testAppointmentHasAttributes(): void
+    protected $stub;
+
+    protected function setUp()
     {
-        $this->assertClassHasAttribute('dateTimeStart', $appointmentClass = Appointment::class);
-        $this->assertClassHasAttribute('dateTimeEnd', $appointmentClass);
+        parent::setUp();
+
+        $this->stub = new Appointment();
     }
 
-    public function testAppointmentCanBeSetViaConstructor(): void
+    public function testHasRelationToAvailability(): void
     {
-        $appointment = factory(Appointment::class)->create([
-            'customer_id' => $customerId = factory(Customer::class)->create()->id,
-            'treatment_id' => $treatmentId = factory(Treatment::class)->create()->id,
-            'dateTimeStart' => $dateTimeStart = $this->faker->dateTime,
-            'dateTimeEnd' => $dateTimeEnd = $this->faker->dateTime,
-        ]);
+        $relation = $this->stub->availability();
+        $this->assertInstanceOf(Availability::class, $relation->getRelated());
+        $this->assertSame('appointments.availability_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('availabilities.id', $relation->getQualifiedOwnerKeyName());
+    }
 
-        $this->assertSame($customerId, $appointment->customer()->first()->id);
-        $this->assertSame($treatmentId, $appointment->treatment()->first()->id);
-        $this->assertSame($dateTimeStart, $appointment->getDateTimeStart());
-        $this->assertSame($dateTimeEnd, $appointment->getDateTimeEnd());
+    public function testHasRelationToCustomer(): void
+    {
+        $relation = $this->stub->customer();
+        $this->assertInstanceOf(Customer::class, $relation->getRelated());
+        $this->assertSame('appointments.customer_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('customers.id', $relation->getQualifiedOwnerKeyName());
+    }
+
+    public function testHasRelationToTreatment(): void
+    {
+        $relation = $this->stub->treatment();
+        $this->assertInstanceOf(Treatment::class, $relation->getRelated());
+        $this->assertSame('appointments.treatment_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('treatments.id', $relation->getQualifiedOwnerKeyName());
     }
 
     public function testAppointmentPathCanBeRetrievedByMethod(): void
     {
-        $appointment = factory(Appointment::class)->create();
-
-        $this->assertSame("/appointments/{$appointment->id}", $appointment->getPath());
+        $this->assertSame("/appointments/{$this->stub->id}", $this->stub->getPath());
     }
 
 }

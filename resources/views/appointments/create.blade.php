@@ -6,19 +6,25 @@
     <form method="POST" action="{{ $overviewRoute = route('appointments') }}">
         @csrf
         <div class="form-row">
+            <!--<div class="form-group col-md-6">
+                <label for="availability_id">{{ __('shared.appointment') }}</label>
+                <select class="form-control" name="availability_id" id="availability_id">
+
+                </select>
+            </div>-->
             <div class="form-group col-md-6">
-                <label for="title">{{ __('shared.title') }}</label>
-                <input type="text" class="form-control" name="title" id="title" value="">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="description">{{ __('shared.description') }}</label>
-                <textarea class="form-control" name="description" id="description"></textarea>
+                <label for="treatment_id">{{ __('shared.treatment') }}</label>
+                <select class="form-control" name="treatment_id" id="treatment_id">
+
+                </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="price">{{ __('shared.price') }}</label>
-                <input type="text" class="form-control" name="price" id="price" value="">
+                <label for="customer_id">{{ __('shared.customer') }}</label>
+                <select class="form-control" name="customer_id" id="customer_id">
+
+                </select>
             </div>
         </div>
 

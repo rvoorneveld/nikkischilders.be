@@ -16,18 +16,8 @@ class AppointmentsRepositoryTest extends TestCase
 
     public function testGetAllOrderedByTitleAscending(): void
     {
-        factory($appointmentClass = Appointment::class)->create([
-            'dateTimeStart' => $this->faker->dateTimeBetween('-2years', '-1year'),
-        ]);
-
-        factory($appointmentClass)->create([
-            'dateTimeStart' => $expected = $this->faker->dateTimeThisMonth(),
-        ]);
-
-        $appointments = (new AppointmentsRepository())->getAllOrderedByDateTimeStartDescending();
-
-        dd($expected, $appointments->last()->getDateTimeStart());
-        $this->assertSame($expected, $appointments->first()->getDateTimeStart());
+        factory(Appointment::class, $expected = 2)->create();
+        $this->assertCount($expected, (new AppointmentsRepository())->getAllOrderedByDateTimeStartDescending());
     }
 
 }

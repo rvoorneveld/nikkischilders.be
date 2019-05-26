@@ -18,7 +18,7 @@ class AppointmentsController extends Controller
 
     public function index()
     {
-        $appointments = $this->appointmentsRepository->getAllOrderedByDateTimeStartAscending();
+        $appointments = $this->appointmentsRepository->getAllOrderedByDateTimeStartDescending();
         return view('appointments.overview', compact('appointments'));
     }
 
@@ -27,17 +27,17 @@ class AppointmentsController extends Controller
         return view('appointments.create');
     }
 
-    public function edit(Appointment $treatment)
+    public function edit(Appointment $appointment)
     {
-        return view('appointments.edit', compact('treatment'));
+        return view('appointments.edit', compact('appointment'));
     }
 
-    public function update(Appointment $treatment)
+    public function update(Appointment $appointment)
     {
-        $treatment->update(request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required',
+        $appointment->update(request()->validate([
+            'availability_id' => 'required|numeric',
+            'customer_id' => 'required|numeric',
+            'treatment_id' => 'required|numeric',
         ]));
 
         return redirect(route('appointments'));
@@ -46,10 +46,9 @@ class AppointmentsController extends Controller
     public function store()
     {
         Appointment::create(request()->validate([
-            'customerId' => 'required|numeric',
-            'treatmentId' => 'required|numeric',
-            'dateTimeStart' => 'required',
-            'dateTimeEnd' => 'required',
+            'availability_id' => 'required|numeric',
+            'customer_id' => 'required|numeric',
+            'treatment_id' => 'required|numeric',
         ]));
 
         return redirect(route('appointments'));

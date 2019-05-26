@@ -11,10 +11,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -41,6 +45,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('treatments') }}">{{ __('treatment.title') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('availabilities') }}">{{ __('availability.title') }}</a>
                         </li>
                     </ul>
 
@@ -95,5 +102,9 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        $.fn.datetimepicker.Constructor.Default.format = 'D/M/Y H:m';
+        $.fn.datetimepicker.Constructor.Default.stepping = 15;
+    </script>
 </body>
 </html>
