@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class AvailabilitiesController extends Controller
 {
 
-    public const TOTAL_HOURS_PER_DAY = 8;
-
     protected $availabilitiesRepository;
 
     public function __construct(AvailabilitiesRepository $availabilitiesRepository)
@@ -20,30 +18,24 @@ class AvailabilitiesController extends Controller
 
     public function index()
     {
-        $availabilities = $this->availabilitiesRepository->getAllOrderedByDateTimeStartDescending();
+        $availabilities = $this->availabilitiesRepository->getAllOrderedByDateTimeDescending();
         return view('availabilities.overview', compact('availabilities'));
     }
 
     public function create()
     {
-        return view('availabilities.create', [
-            'totalHoursPerDay' => static::TOTAL_HOURS_PER_DAY,
-        ]);
+        return view('availabilities.create');
     }
 
     public function edit(Availability $availability)
     {
-        return view('availabilities.edit', [
-            'availability' => $availability,
-            'totalHoursPerDay' => static::TOTAL_HOURS_PER_DAY,
-        ]);
+        return view('availabilities.edit', compact('availability'));
     }
 
     public function update(Availability $availability)
     {
         $availability->update(request()->validate([
-            'dateTimeStart' => 'required',
-            'dateTimeEnd' => 'required',
+            'dateTime' => 'required',
         ]));
 
         return redirect(route('availabilities'));
@@ -51,12 +43,21 @@ class AvailabilitiesController extends Controller
 
     public function store()
     {
-        Availability::create(request()->validate([
-            'dateTimeStart' => 'required',
-            'dateTimeEnd' => 'required',
-        ]));
+        $validated = request()->validate([
+            'dateTime' => 'required',
+            'minutes' => 'required|numeric'
+        ]);
+
+        for ($i = 1; $i <= $this->getNumberOfSlots($validated['minutes']); $i++) {
+            Availability::create(array_only($validated, 'dateTime'));
+        }
 
         return redirect(route('availabilities'));
+    }
+
+    private function getNumberOfSlots(int $minutes): int
+    {
+        return $minutes / Availability::DURATION_MINUTES;
     }
 
 }

@@ -7,9 +7,9 @@ use App\Availability;
 class AvailabilitiesRepository
 {
 
-    public function getAllOrderedByDateTimeStartDescending()
+    public function getAllOrderedByDateTimeDescending()
     {
-        return Availability::orderByDesc('dateTimeStart')->get();
+        return Availability::orderByDesc('dateTime')->get();
     }
 
 }

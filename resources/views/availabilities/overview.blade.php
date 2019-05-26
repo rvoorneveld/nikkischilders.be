@@ -11,8 +11,12 @@
     <table class="table">
     @forelse($availabilities as $availability)
         <tr>
-            <td>{{ $availability->getDateTimeStart() }}</td>
-            <td>{{ $availability->getDateTimeEnd() }}</td>
+            <td>{{ $availability->id }}</td>
+            <td>
+                <a title="{{ $dateTime = $availability->getDateTime() }}" href="{{ $availability->getPath() }}">
+                    {{ $dateTime }}
+                </a>
+            </td>
         </tr>
         @empty
         <tr>

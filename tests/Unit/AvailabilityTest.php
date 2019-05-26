@@ -12,18 +12,25 @@ class AvailabilityTest extends TestCase
 
     use RefreshDatabase, WithFaker;
 
-    protected $stub;
-
-    protected function setUp()
+    public function testAvailabilityHasAttributes(): void
     {
-        parent::setUp();
-
-        $this->stub = new Availability();
+        $this->assertClassHasAttribute('dateTime', Availability::class);
     }
 
-    public function testPathCanBeRetrievedByMethod(): void
+    public function testAvailabilityCanBeSetViaConstructor(): void
     {
-        $this->assertSame("/availabilities/{$this->stub->id}", $this->stub->getPath());
+        $availability = factory(Availability::class)->create([
+            'dateTime' => $dateTimeEnd = $this->faker->dateTime,
+        ]);
+
+        $this->assertSame($dateTimeEnd->format($dateFormat = 'Y-m-d H:i:s'), $availability->getDateTime()->toDateTimeString());
+    }
+
+    public function testAvailabilityPathCanBeRetrievedByMethod(): void
+    {
+        $availability = factory(Availability::class)->create();
+
+        $this->assertSame("/availabilities/{$availability->id}", $availability->getPath());
     }
 
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>{{ __('availability.edit') }}</h1>
+    <h1>{{ __('availability.edit') }} #{{ $availability->id }}</h1>
 
     <form method="POST">
         @csrf

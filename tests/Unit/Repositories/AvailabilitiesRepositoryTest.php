@@ -15,18 +15,17 @@ class AvailabilitiesRepositoryTest extends TestCase
 
     public function testGetAllOrderedByTitleAscending(): void
     {
-        factory(Availability::class)->create([
-            'dateTimeStart' => $orderedSecond = $this->faker->dateTimeBetween('-3 hour', '-2 hour'),
+        factory($availabilityClass = Availability::class)->create([
+            $dateTimeKey = 'dateTime' => $this->faker->dateTimeBetween('-2years', '-1year'),
         ]);
 
-        factory(Availability::class)->create([
-            'dateTimeStart' => $orderedFirst = $this->faker->dateTimeBetween('-1 hour'),
+        factory($availabilityClass)->create([
+            $dateTimeKey => $expected = $this->faker->dateTimeThisMonth(),
         ]);
 
-        $availabilities = (new AvailabilitiesRepository())->getAllOrderedByDateTimeStartDescending();
+        $availabilities = (new AvailabilitiesRepository())->getAllOrderedByDateTimeDescending();
 
-        $this->assertSame($orderedFirst->format($dateFormat = 'y-m-d H:i:s'), $availabilities->first()->getDateTimeStart()->format($dateFormat));
-        $this->assertSame($orderedSecond->format($dateFormat), $availabilities->last()->getDateTimeStart()->format($dateFormat));
+        $this->assertSame($expected->format('Y-m-d H:i:s'), $availabilities->first()->getDateTime()->toDateTimeString());
     }
 
 }

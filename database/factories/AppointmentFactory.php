@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Appointment::class, function (Faker $faker) {
+$factory->define(App\Appointment::class, static function (Faker $faker) {
     return [
         'availability_id' => factory(\App\Availability::class)->create(),
         'customer_id' => factory(\App\Customer::class)->create(),

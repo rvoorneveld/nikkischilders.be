@@ -3,38 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Availability extends Model
 {
 
+    public const DURATION_MINUTES = 90;
+
     protected $dates = [
-        'dateTimeStart',
-        'dateTimeEnd',
+        'dateTime',
     ];
     protected $guarded = [];
 
-    public $dateTimeStart;
-    public $dateTimeEnd;
+    public $dateTime;
 
     public function getPath(): string
     {
         return "/availabilities/{$this->id}";
     }
 
-    public function getDateTimeStart(): \DateTime
+    public function getDateTime(): \DateTime
     {
-        return $this->getAttribute('dateTimeStart');
-    }
-
-    public function getDateTimeEnd(): \DateTime
-    {
-        return $this->getAttribute('dateTimeEnd');
-    }
-
-    public function appointment(): HasOne
-    {
-        return $this->HasOne(Appointment::class);
+        return $this->getAttribute('dateTime');
     }
 
 }
