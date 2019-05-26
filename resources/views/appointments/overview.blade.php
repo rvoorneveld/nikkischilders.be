@@ -13,9 +13,8 @@
         <tr>
             <td>{{ $appointment->id }}</td>
             <td>
-                <!--  //$date = $appointment->availability->getDateTimeStart() -->
-                <a title="{{ $date = 'Date from availability' }}" href="{{ $appointment->getPath() }}">
-                    {{ $date }}
+                <a title="{{ $dateTimeStart = $appointment->getDateTimeStart() }}" href="{{ $appointment->getPath() }}">
+                    {{ $dateTimeStart }}
                 </a>
             </td>
             <td>

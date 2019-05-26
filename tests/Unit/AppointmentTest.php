@@ -26,10 +26,17 @@ class AppointmentTest extends TestCase
 
     public function testHasRelationToAvailability(): void
     {
-        $relation = $this->stub->availability();
-        $this->assertInstanceOf(Availability::class, $relation->getRelated());
-        $this->assertSame('appointments.availability_id', $relation->getQualifiedForeignKey());
-        $this->assertSame('availabilities.id', $relation->getQualifiedOwnerKeyName());
+        $appointment = factory(Appointment::class)->create([
+            'customer_id' => $customerId = factory(Customer::class)->create()->id,
+            'treatment_id' => $treatmentId = factory(Treatment::class)->create()->id,
+            'dateTimeStart' => $dateTimeStart = $this->faker->dateTime,
+            'dateTimeEnd' => $dateTimeEnd = $this->faker->dateTime,
+        ]);
+
+        $this->assertSame($customerId, $appointment->customer()->first()->id);
+        $this->assertSame($treatmentId, $appointment->treatment()->first()->id);
+        $this->assertSame($dateTimeStart->format($dateFormat = 'Y-m-d H:i:s'), $appointment->getDateTimeStart()->toDateTimeString());
+        $this->assertSame($dateTimeEnd->format($dateFormat), $appointment->getDateTimeEnd()->toDateTimeString());
     }
 
     public function testHasRelationToCustomer(): void
