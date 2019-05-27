@@ -4,16 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Appointment extends Model
 {
 
+    protected $dates = [
+        'dateTimeStart',
+        'dateTimeEnd',
+    ];
     protected $guarded = [];
 
     public function getPath(): string
     {
         return "/appointments/{$this->id}";
+    }
+
+    public function getDateTimeStart(): \DateTime
+    {
+        return $this->getAttribute('dateTimeStart');
     }
 
     public function availability(): BelongsTo

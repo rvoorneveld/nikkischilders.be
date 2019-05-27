@@ -15,8 +15,9 @@ class AppointmentsRepositoryTest extends TestCase
 
     public function testGetAllOrderedByTitleAscending(): void
     {
+        $this->withoutExceptionHandling();
         factory($appointmentClass = Appointment::class)->create([
-            'dateTimeStart' => $this->faker->dateTimeBetween('-2years', '-1year'),
+            'dateTimeStart' => $test = $this->faker->dateTimeBetween('-2years', '-1year'),
         ]);
 
         factory($appointmentClass)->create([

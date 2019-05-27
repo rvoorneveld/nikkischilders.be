@@ -26,31 +26,21 @@ class AppointmentTest extends TestCase
 
     public function testHasRelationToAvailability(): void
     {
-        $appointment = factory(Appointment::class)->create([
-            'customer_id' => $customerId = factory(Customer::class)->create()->id,
-            'treatment_id' => $treatmentId = factory(Treatment::class)->create()->id,
-            'dateTimeStart' => $dateTimeStart = $this->faker->dateTime,
-            'dateTimeEnd' => $dateTimeEnd = $this->faker->dateTime,
-        ]);
-
-        $this->assertSame($customerId, $appointment->customer()->first()->id);
-        $this->assertSame($treatmentId, $appointment->treatment()->first()->id);
-        $this->assertSame($dateTimeStart->format($dateFormat = 'Y-m-d H:i:s'), $appointment->getDateTimeStart()->toDateTimeString());
-        $this->assertSame($dateTimeEnd->format($dateFormat), $appointment->getDateTimeEnd()->toDateTimeString());
+        $this->assertInstanceOf(Availability::class, ($relation = $this->stub->availability())->getRelated());
+        $this->assertSame('appointments.availability_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('availabilities.id', $relation->getQualifiedOwnerKeyName());
     }
 
     public function testHasRelationToCustomer(): void
     {
-        $relation = $this->stub->customer();
-        $this->assertInstanceOf(Customer::class, $relation->getRelated());
+        $this->assertInstanceOf(Customer::class, ($relation = $this->stub->customer())->getRelated());
         $this->assertSame('appointments.customer_id', $relation->getQualifiedForeignKey());
         $this->assertSame('customers.id', $relation->getQualifiedOwnerKeyName());
     }
 
     public function testHasRelationToTreatment(): void
     {
-        $relation = $this->stub->treatment();
-        $this->assertInstanceOf(Treatment::class, $relation->getRelated());
+        $this->assertInstanceOf(Treatment::class, ($relation = $this->stub->treatment())->getRelated());
         $this->assertSame('appointments.treatment_id', $relation->getQualifiedForeignKey());
         $this->assertSame('treatments.id', $relation->getQualifiedOwnerKeyName());
     }

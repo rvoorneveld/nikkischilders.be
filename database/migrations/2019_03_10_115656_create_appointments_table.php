@@ -19,6 +19,8 @@ class CreateAppointmentsTable extends Migration
             $table->unsignedTinyInteger('availability_id');
             $table->unsignedTinyInteger('customer_id');
             $table->unsignedTinyInteger('treatment_id');
+            $table->dateTime('dateTimeStart');
+            $table->dateTime('dateTimeEnd');
             $table->timestamps();
         });
     }

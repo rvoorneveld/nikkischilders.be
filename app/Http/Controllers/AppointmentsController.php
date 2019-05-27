@@ -38,6 +38,8 @@ class AppointmentsController extends Controller
             'availability_id' => 'required|numeric',
             'customer_id' => 'required|numeric',
             'treatment_id' => 'required|numeric',
+            'dateTimeStart' => 'required',
+            'dateTimeEnd' => 'required',
         ]));
 
         return redirect(route('appointments'));
@@ -46,6 +48,7 @@ class AppointmentsController extends Controller
     public function store()
     {
         Appointment::create(request()->validate([
+            'availability_id' => 'required|numeric',
             'customer_id' => 'required|numeric',
             'treatment_id' => 'required|numeric',
             'dateTimeStart' => 'required',

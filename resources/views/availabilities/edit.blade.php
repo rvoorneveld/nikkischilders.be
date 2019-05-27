@@ -19,19 +19,6 @@
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="duration">{{ __('availability.duration') }}</label>
-                <select class="form-control" name="duration" id="duration">
-                    @for ($i = 1; $i <= $totalHoursPerDay; $i++)
-                        <option value="{{ $i }}">
-                            {{ $i }} {{ strtolower(__('availability.hour'.(1 === $i ? '' : 's'))) }}
-                        </option>
-                    @endfor
-                </select>
-            </div>
-        </div>
-
         <div class="field">
             <div class="control">
                 <button type="submit" class="btn btn-primary">{{ __('shared.save') }}</button>

@@ -7,5 +7,7 @@ $factory->define(App\Appointment::class, static function (Faker $faker) {
         'availability_id' => factory(\App\Availability::class)->create(),
         'customer_id' => factory(\App\Customer::class)->create(),
         'treatment_id' => factory(\App\Treatment::class)->create(),
+        'dateTimeStart' => $faker->dateTime,
+        'dateTimeEnd' => $faker->dateTime,
     ];
 });

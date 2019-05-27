@@ -9,8 +9,7 @@ class AppointmentsRepository
 
     public function getAllOrderedByDateTimeStartDescending()
     {
-    	return Appointment::all();
-//        return Appointment::withAvailability()->orderByDesc('dateTimeStart')->get();
+        return Appointment::orderByDesc('dateTimeStart')->get();
     }
 
 }

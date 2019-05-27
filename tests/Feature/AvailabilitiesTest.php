@@ -54,6 +54,7 @@ class AvailabilitiesTest extends TestCase
 
         $this->post(route($route = 'availabilities'), [
             'dateTime' => $this->faker->dateTime,
+            'minutes' => $this->faker->numberBetween(1, 8) * 30,
         ])->assertRedirect(route($route));
     }
 
