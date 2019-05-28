@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Availability extends Model
 {
 
-    public const DURATION_MINUTES = 90;
+    public const DURATION_MINUTES = 60;
 
     protected $dates = [
         'dateTime',

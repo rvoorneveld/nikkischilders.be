@@ -10,7 +10,6 @@ return [
     'hour' => 'Hour',
     'hours' => 'Hours',
     'lastName' => 'Last name',
-    'minutes' => 'Minutes',
     'phoneNumber' => 'Phone number',
     'price' => 'Price',
     'save' => 'Save',

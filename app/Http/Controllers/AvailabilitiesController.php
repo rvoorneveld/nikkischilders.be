@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Availability;
 use App\Repositories\AvailabilitiesRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AvailabilitiesController extends Controller
@@ -45,19 +46,16 @@ class AvailabilitiesController extends Controller
     {
         $validated = request()->validate([
             'dateTime' => 'required',
-            'minutes' => 'required|numeric'
+            'hours' => 'required|numeric',
         ]);
 
-        for ($i = 1; $i <= $this->getNumberOfSlots($validated['minutes']); $i++) {
-            Availability::create(array_only($validated, 'dateTime'));
+        for ($i = 0; $i < $validated['hours']; $i++) {
+            Availability::create([
+                'dateTime' => (new Carbon($validated['dateTime']))->addHour($i),
+            ]);
         }
 
         return redirect(route('availabilities'));
-    }
-
-    private function getNumberOfSlots(int $minutes): int
-    {
-        return $minutes / Availability::DURATION_MINUTES;
     }
 
 }
