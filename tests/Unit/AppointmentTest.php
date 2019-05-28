@@ -17,7 +17,7 @@ class AppointmentTest extends TestCase
 
     protected $stub;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
