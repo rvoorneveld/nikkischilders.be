@@ -5,7 +5,7 @@ Route::get('/', static function () {
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth',], function() {
+Route::group(['middleware' => 'auth',], static function() {
     Route::get('/appointments', 'AppointmentsController@index')->name('appointments');
     Route::get('/appointments/create', 'AppointmentsController@create')->name('appointments.create');
     Route::get('/appointments/{appointment}', 'AppointmentsController@edit');
