@@ -14,7 +14,7 @@ class CreateTreatmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('treatments', function (Blueprint $table) {
+        Schema::create('treatments', static function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->text('description');

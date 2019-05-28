@@ -14,7 +14,7 @@ class CreateAppointmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('appointments', static function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedTinyInteger('availability_id');
             $table->unsignedTinyInteger('customer_id');

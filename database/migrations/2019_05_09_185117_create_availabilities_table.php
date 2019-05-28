@@ -13,7 +13,7 @@ class CreateAvailabilitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('availabilities', function (Blueprint $table) {
+        Schema::create('availabilities', static function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('dateTime');
             $table->timestamps();
