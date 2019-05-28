@@ -1,6 +1,6 @@
 <?php
-    return view('welcome');
 Route::get('/', static function () {
+    return view('layouts.default');
 });
 
 Auth::routes();
