@@ -46,7 +46,9 @@ class TreatmentsTest extends TestCase
         $response = $this->get('/treatments');
         $response->assertStatus(200);
         $response->assertSee($treatmentOne->getTitle());
+        $response->assertSee($treatmentOne->getPrice());
         $response->assertSee($treatmentTwo->getTitle());
+        $response->assertSee($treatmentTwo->getPrice());
     }
 
     public function testTreatmentCanBeCreated(): void
@@ -71,6 +73,7 @@ class TreatmentsTest extends TestCase
         $response = $this->get($treatment->getPath());
         $response->assertStatus(200);
         $response->assertSee($treatment->getTitle());
+        $response->assertSee($treatment->getPrice());
     }
 
     public function testTreatmentDetailsCanBeEdited(): void

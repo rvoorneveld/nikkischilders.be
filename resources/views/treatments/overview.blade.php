@@ -17,6 +17,7 @@
                     {{ $title }}
                 </a>
             </td>
+            <td>{{ $treatment->getPrice() }}</td>
         </tr>
         @empty
         <tr>
