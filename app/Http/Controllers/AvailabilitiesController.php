@@ -51,7 +51,7 @@ class AvailabilitiesController extends Controller
 
         for ($i = 0; $i < $validated['hours']; $i++) {
             Availability::create([
-                'dateTime' => (new Carbon($validated['dateTime']))->addHour($i),
+                'dateTime' => (new Carbon($validated['dateTime']->format('Y-m-d H:i:s')))->addHours($i),
             ]);
         }
 
