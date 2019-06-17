@@ -1,485 +1,147 @@
 <!doctype html>
-<html class="" lang="en">
+<html class="text-white antialiased leading-tight" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Nikki Schilders - Wellness & Massages</title>
 
-    <meta name="description" content="">
+    <meta name="description" content="Nikki Schilders - Wellness & Massages">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{--<link href="images/favicon.jpg" type="images/x-icon" rel="shortcut icon">--}}
     <link rel="stylesheet" href="/css/app.css">
-
-    <script src="/js/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">je gebruikt een <strong>verouderde</strong> browser. <a href="http://browsehappy.com/">Upgrade jouw browser</a> om de ervaring te verbeteren.</p>
-<![endif]-->
-
-
-<!--Main navigation start-->
-<header class="main-navigation ">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-sm-2 pos">
-                <a class="logo" href="/"><img src="images/logo/logo5.png" alt=""></a>
+<body class="min-h-screen leading-relaxed tracking-wide">
+    <nav class="w-full bg-gray-900 mx-auto p-3 heading italic text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+        <span class="tracking-wide font-black uppercase">Nikki</span> <span class="tracking-tighter font-hairline lowercase">Schilders</span>
+    </nav>
+{{--    <div class="w-full relative text-white bg-fixed object-cover" style="background-image: url('images/bg_nikki-schilders.jpg'); min-height: 500px; background-position: 50% 50%;">--}}
+{{--        <div class="absolute ml-48 mt-48">--}}
+{{--            <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl heading font-extrabold uppercase object-none object-center">--}}
+{{--                Lorum ipsum--}}
+{{--            </h1>--}}
+{{--            <h3 class="text-base heading font-hairline tracking-widest">--}}
+{{--                Lorum ipsum dolar sit amet--}}
+{{--            </h3>--}}
+{{--            <h2 class="text-base heading font-extrabold mt-8">--}}
+{{--                &ldquo;consectetur adipiscing elit<br>--}}
+{{--                Sed tincidunt libero id luctus gravida&rdquo;--}}
+{{--            </h2>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    <div class="bg-red-600 text-white py-6 md:py-16">
+        <div class="container flex flex-wrap md:mx-auto">
+            <div class="w-full md:w-1/2 md:text-right p-6">
+                <h1 class="text-3xl heading italic font-extrabold uppercase">
+                    Lorum ipsum
+                    <br>Dolar sit amet
+                </h1>
+                <h2 class="text-sm heading italic font-extrabold text-red-300">
+                    &ldquo;consectetur adipiscing elit<br>
+                    Sed tincidunt libero id luctus gravida&rdquo;
+                </h2>
             </div>
-            <div class="col-md-7 col-sm-7 no-pad-right hidden-sm hidden-xs">
-                <nav class="navbar">
-                    <ul id="nav" class="nav navbar-nav navbar-right">
-                        <li class="active" ><a href="/">home</a></li>
-                        <li><a href="#">massages</a>
-                            <ul class="drop-down">
-                                <li><a href="/massages/relax-massage">relax massage</a></li>
-                                <li><a href="/massages/sport-massage">sport massage</a></li>
-                                <li><a href="/massages/wellness-massage">wellness massage</a></li>
-                                <li><a href="/massages/hot-stone-massage">hot-stone-massage</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/voeding">voeding</a></li>
-                        <li><a href="/contact">contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-md-3 col-sm-3 no-pad-left hidden-sm">
-                <div class="appointment-button">
-                    <a href="javascript:;" data-target="#productModal" data-toggle="modal"><i class="fa fa-calendar fa-fw"></i>Maak een afspraak</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header><!--Main navigation end-->
-<!--Mobile menu start-->
-<div class="mobile-menu hidden-lg hidden-md hidden-sm">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="mobile-menu ">
-                <nav class="mobile-menu-start">
-                    <ul>
-                        <li class="active" ><a href="/">home</a></li>
-                        <li><a href="#">massages</a>
-                            <ul>
-                                <li><a href="/massages/relax-massage">relax massage</a></li>
-                                <li><a href="/massages/sport-massage">sport massage</a></li>
-                                <li><a href="/massages/wellness-massage">wellness massage</a></li>
-                                <li><a href="/massages/hot-stone-massage">hot-stone-massage</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/voeding">voeding</a></li>
-                        <li><a href="/contact">contact</a></li>
-                        <li><a href="javascript:;" data-target="#productModal" data-toggle="modal"><i class="fa fa-calendar fa-fw"></i>Maak een afspraak</a></li>
-                    </ul>
-                </nav>
+            <div class="w-full md:w-1/2 text-left p-6">
+                <p class="mb-6">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt libero id luctus gravida. Aliquam ut lobortis eros.
+                    Integer a malesuada lorem, eget convallis est.
+                </p>
+                <p class="mt-6">
+                    Phasellus nibh eros, condimentum ac justo sed, bibendum finibus arcu. In justo eros, accumsan ac mauris ac, suscipit gravida mauris.
+                    Nam massa mi, dignissim non elementum sit amet, dictum in sem. Nunc accumsan id leo eget porttitor. Maecenas eget tincidunt velit.
+                    Nullam quis quam tristique, pretium massa dictum, maximus est. Etiam libero urna, rhoncus in odio blandit, laoreet commodo elit.
+                </p>
             </div>
         </div>
     </div>
-</div>
-<!--Mobile menu start-->
-
-
-
-<!--Start Banner Section -->
-<div id="slider" class="banner carousel slide carousel-fade" data-ride="carousel" data-pause="false">
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active slider-1" style="background-image: url('/images/istock/469916170-1024x1024.jpg');">
-            <div class="caption-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-10 col-md-offset-1">
-                            <div class="caption-info-inner text-center">
-                                <h1 class="animated fadeInDown">Ultieme ontspanning!</h1>
-                                <p class="animated photo-overlay--text fadeInUp">Deze ontspanningsmassage is een weldaad voor lichaam en geest. Deze massage helpt u om stress en spanningen te verminderen.</p>
-                                <a href="#massages-relax" class="animated fadeInUp btn-primary page-scroll">Lees meer</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="flex flex-row-reverse flex-wrap-reverse bg-gray-100 pb-6 md:pb-0">
+        <div class="w-full md:w-1/2 text-left px-6 md:px-64 text-black">
+            <h2 class="text-3xl heading italic font-extrabold uppercase mt-8 md:mt-32">Sportmassage</h2>
+            <p class="my-6 w-full md:w-1/2">
+                Phasellus nibh eros, condimentum ac justo sed, bibendum finibus arcu. In justo eros, accumsan ac mauris ac, suscipit gravida mauris.
+                Nam massa mi, dignissim non elementum sit amet, dictum in sem.
+            </p>
+            <ul class="mb-6 font-bold">
+                <li>usp 1</li>
+                <li>usp 2</li>
+                <li>usp 3</li>
+            </ul>
+            <a href="#book" class="border-2 border-red-500 text-red-500 bg-white m-auto px-10 py-2 hover:bg-red-500 hover:text-white">
+                Boek een sessie
+            </a>
         </div>
-
-        <div class="item slider-2" style="background-image: url('/images/istock/688144148-1024x1024.jpg');">
-            <div class="caption-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-10 col-md-offset-1">
-                            <div class="caption-info-inner text-center">
-                                <h1 class="animated zoomIn">Druk bestaan of (top)sporter?</h1>
-                                <p class="animated photo-overlay--text zoomIn">Een intensieve massage die to diep in de spieren doorwerkt. Ideaal voor de drukke persoon of (top)sporter.</p>
-                                <a href="#massages-sport" class="animated zoomIn btn-primary page-scroll">Lees meer</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div><!--end carousel-inner-->
-    <!-- Controls -->
-    <a class="control left" href="#slider" data-slide="prev"><i class="fa fa-arrow-left"></i></a>
-    <a class="right control" href="#slider" data-slide="next"><i class="fa fa-arrow-right"></i></a>
-</div>
-<!--End Banner Section-->
-
-<!--Service section start-->
-<section  id="service-area" class="ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="section-title text-center">
-                    <h2>Mijn <span class="pink">competenties</span></h2>
-                    <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim nostrud exercitation ullamco laboris nisi.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-3 no-padding">
-
-                <div class="sin-service">
-                    <div class="ser-icon">
-                        <i class="flaticon-spa"></i>
-                    </div>
-                    <h3>Kine</h3>
-                    <p>Proin iaculis purus consequat sem cure digni ssim Donec porttitora entum suscipit  aenean rhoncus posuere odio</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3 no-padding">
-                <div class="sin-service">
-                    <div class="ser-icon">
-                        <i class="flaticon-relax-2"></i>
-
-                    </div>
-                    <h3>dry needling</h3>
-                    <p>Proin iaculis purus consequat sem cure digni ssim Donec porttitora entum suscipit  aenean rhoncus posuere odio</p>
-                </div>
-
-            </div>
-            <div class="col-sm-6 col-md-3 no-padding">
-                <div class="sin-service">
-                    <div class="ser-icon">
-                        <i class="flaticon-relax-1"></i>
-
-                    </div>
-                    <h3>blessure revalidatie</h3>
-                    <p>Proin iaculis purus consequat sem cure digni ssim Donec porttitora entum suscipit  aenean rhoncus posuere odio</p>
-                </div>
-
-            </div>
-            <div class="col-sm-6 col-md-3 no-padding">
-                <div class="sin-service">
-                    <div class="ser-icon">
-                        <i class="flaticon-spa"></i>
-
-                    </div>
-                    <h3>manueel therapie</h3>
-                    <p>Proin iaculis purus consequat sem cure digni ssim Donec porttitora entum suscipit  aenean rhoncus posuere odio</p>
-                </div>
-            </div>
+        <div class="w-full md:w-1/2">
+            <img class="w-full" alt="" src="https://placekitten.com/640/360">
         </div>
     </div>
-</section>
-<!--Service area end-->
-
-<!--Our feature area start -->
-<div class="our-feature ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="section-title text-center">
-                    <h2>de <span class="pink">prijzen</span></h2>
-                    <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim nostrud exercitation ullamco laboris nisi.</p>
-                </div>
-            </div>
+    <div class="flex flex-row flex-wrap-reverse bg-gray-100 py-6 md:py-0">
+        <div class="w-full md:w-1/2 px-6 md:px-64 text-black">
+            <h2 class="text-3xl heading italic font-extrabold uppercase mt-8 md:mt-32">Sportmassage</h2>
+            <p class="my-6 w-full md:w-1/2">
+                Phasellus nibh eros, condimentum ac justo sed, bibendum finibus arcu. In justo eros, accumsan ac mauris ac, suscipit gravida mauris.
+                Nam massa mi, dignissim non elementum sit amet, dictum in sem.
+            </p>
+            <ul class="mb-6 font-bold">
+                <li>usp 1</li>
+                <li>usp 2</li>
+                <li>usp 3</li>
+            </ul>
+            <a href="#book" class="border-2 border-red-500 text-red-500 bg-white mx-auto px-10 py-2 hover:bg-red-500 hover:text-white">
+                Boek een sessie
+            </a>
         </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-feature text-center">
-                    <div class="feature-img">
-                        <img src="/images/istock/665271020-1024x1024.jpg" alt="">
-                    </div>
-                    <div class="feature-desc">
-                        <h3><a href="#">Gezicht massage</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                    <div class="feature-rate">
-                        <p>&euro;50,-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-feature text-center">
-                    <div class="feature-img">
-                        <img src="/images/istock/469916170-1024x1024.jpg" alt="">
-                    </div>
-                    <div class="feature-desc">
-                        <h3><a href="#">Relax massage</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                    <div class="feature-rate">
-                        <p>&euro;75,-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-feature text-center">
-                    <div class="feature-img">
-                        <img src="/images/istock/688144148-1024x1024.jpg" alt="">
-                    </div>
-                    <div class="feature-desc">
-                        <h3><a href="#">Sport massage</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                    <div class="feature-rate">
-                        <p>&euro;120,-</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-feature text-center">
-                    <div class="feature-img">
-                        <img src="/images/istock/183798184-1024x1024.jpg" alt="">
-                    </div>
-                    <div class="feature-desc">
-                        <h3><a href="#">Hot stone massage</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                    <div class="feature-rate">
-                        <p>&euro;200,-</p>
-                    </div>
-                </div>
-            </div>
-
+        <div class="w-full md:w-1/2">
+            <img class="w-full" alt="" src="https://placekitten.com/640/360">
         </div>
     </div>
-</div>
-<!--Our feature area end-->
+    <div class="mx-auto flex flex-wrap flex-row p-6 bg-red-600">
+        <div class="flex-1 p-6">
 
-<!--Purchase area start-->
-<section class="fixed-bg-wrapper" style="background-image: url('/images/istock/891939558-1024x1024.jpg');">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="fixed-bg">
-                    <h2> Speciale aanbieding</h2>
-                    <span><a data-target="#productModal" data-toggle="modal" href="javascript:;">Maak nu een afspraak</a></span>
-                </div>
-            </div>
+        </div>
+        <div class="flex-1 p-6">
+            <p class="mb-6">
+                Vragen, opmerkingen of feedback? Contact mij via onderstaande kanalen.<br>
+                Ik reageer ASAP!
+            </p>
+            <p>
+                T: <a href="tel:+32468047774">0468 047 774</a><br>
+                E: <a href="mailto:support@nikkischilders.be">support@nikkischilders.be</a><br>
+            </p>
         </div>
     </div>
-</section>
-<!--Purchase area end-->
+    <div class="text-center font-hairline text-sm mx-auto p-6 bg-red-600 text-red-300">
+        <a class="inline-block" href="https://www.facebook.com/nikki.schilders" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 46 46" role="img" aria-labelledby="facebook-icon">
+                <title id="facebook-icon">Facebook</title>
+                <path fill="#feb2b2" d="M18.896 20.12h1.758v-1.708c0-.753.02-1.915.566-2.635.576-.762 1.368-1.28 2.73-1.28 2.218 0 3.15.316 3.15.316l-.438 2.605s-.73-.212-1.417-.212c-.684 0-1.296.245-1.296.93v1.985h2.803l-.194 2.547h-2.61v8.84h-3.297v-8.84h-1.758V20.12z"/>
+            </svg>
+        </a>
 
-<!--Contact area start-->
-<section id="contact" class="contact-area ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="section-title text-center">
-                    <h2>maak <span class="pink">contact</span></h2>
-                    <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim nostrud exercitation ullamco laboris nisi.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 ">
-                <div class="contact-address contact-wraper">
-                    <div class="sin-add">
-                        <div class="add-icon">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                        </div>
-                        <p class="phone">Telefoon: <a href="tel:+32496727785">+32 (0) 496 72 77 85</a></p>
-                    </div>
-                    <div class="sin-add">
-                        <div class="add-icon">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        </div>
-                        <p class="mail">
-                            E-mailadres:<a href="mailto:nikki.schilders@gmail.com">nikki.schilders@gmail.com</a>
-                        </p>
-                    </div>
-                    <div class="sin-add">
-                        <div class="add-icon">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        </div>
-                        <p class="adress">Corluystraat 9<br>2160 Wommelgem<br>Antwerpen</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8 ">
-                <div class="contact-wraper">
-                    <form class="contact-form" id="contact-form" action="mail.php" method="post" >
-                        <div class="col-md-6">
-                            <input  placeholder="Naam" name="name" type="text">
-                        </div>
+        <a class="inline-block"  href="https://twitter.com/nikkischilders" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 46 46" role="img" aria-labelledby="twitter-icon">
+                <title id="twitter-icon">Twitter</title>
+                <path fill="#feb2b2" d="M31.52 17.716c-.627.278-1.302.466-2.008.55.722-.432 1.275-1.116 1.536-1.933-.676.4-1.422.69-2.22.847-.637-.68-1.546-1.103-2.552-1.103-1.93 0-3.494 1.565-3.494 3.495 0 .273.03.54.09.796-2.904-.146-5.48-1.536-7.205-3.653-.3.52-.473 1.12-.473 1.76 0 1.212.617 2.28 1.555 2.908-.576-.017-1.115-.176-1.587-.436v.043c0 1.694 1.205 3.107 2.805 3.427-.295.082-.603.123-.923.123-.225 0-.444-.02-.657-.062.445 1.388 1.736 2.4 3.266 2.425-1.196.94-2.704 1.498-4.34 1.498-.283 0-.562-.013-.835-.046 1.55.99 3.385 1.568 5.36 1.568 6.43 0 9.944-5.323 9.944-9.94 0-.153-.003-.306-.01-.454.684-.492 1.278-1.108 1.745-1.81"/>
+            </svg>
+        </a>
 
-                        <div class="col-md-6">
-                            <input placeholder="E-mailadres" name="email" type="text">
-                        </div>
-
-                        <div class="col-md-12">
-                            <input placeholder="Onderwerp" name="subject" type="text">
-                        </div>
-                        <div class="col-md-12">
-                            <textarea placeholder="Bericht" name="message"></textarea>
-                        </div>
-                        <div class="col-md-12">
-                            <button class="btn submit-btn btn-primary" type="submit" >Verstuur</button>
-                        </div>
-                    </form>
-                    <p class="form-messege"></p>
-                </div>
-            </div>
-        </div>
+        <a class="inline-block"  href="https://www.instagram.com/nikkischilders/?hl=nl" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 46 46" role="img" aria-labelledby="instagram-icon">
+                <title id="instagram-icon">Instagram</title>
+                <path fill="#feb2b2" d="M29.76 29.03v-7.373h-1.537c.152.48.23.975.23 1.49 0 .958-.243 1.838-.73 2.647-.485.807-1.146 1.447-1.98 1.918-.834.47-1.744.705-2.73.705-1.495 0-2.773-.514-3.835-1.543-1.062-1.027-1.593-2.27-1.593-3.726 0-.517.076-1.013.228-1.49H16.21v7.373c0 .2.065.37.2.5.13.14.296.2.494.2H29.07c.188 0 .352-.06.488-.2s.202-.3.202-.49zm-3.233-6.064c0-.94-.343-1.743-1.03-2.406-.686-.664-1.515-.996-2.486-.996-.96 0-1.78.332-2.47.996-.68.663-1.03 1.466-1.03 2.406 0 .942.35 1.743 1.03 2.407s1.51.996 2.48.996c.975 0 1.8-.34 2.49-1s1.03-1.47 1.03-2.41zm3.233-4.097v-1.88c0-.22-.076-.4-.23-.56-.15-.158-.336-.235-.556-.235h-1.98c-.22 0-.406.08-.558.233-.15.155-.228.34-.228.552v1.876c0 .22.076.404.228.556s.337.23.558.23h1.98c.22 0 .406-.078.557-.23.16-.15.23-.338.23-.558zm1.98-2.37v12.99c0 .61-.22 1.14-.66 1.58-.44.44-.967.66-1.582.66H16.502c-.614 0-1.142-.22-1.582-.66-.44-.44-.66-.97-.66-1.586V16.5c0-.614.22-1.142.66-1.582.44-.44.967-.66 1.582-.66h12.996c.615 0 1.14.22 1.582.66.44.44.66.967.66 1.58z"/>
+            </svg>
+        </a>
     </div>
-</section>
-<!--Contact area end-->
-
-<!--Footer widget area start-->
-<section class="footer-widget">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-footer">
-                    <div class="sin-footer-head">
-                        <h5>Over mij</h5> </div>
-                    <div class="sin-footer-con">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adips Aiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-footer">
-                    <div class="sin-footer-head">
-                        <h5>Snelle links</h5> </div>
-                    <div class="sin-footer-con">
-                        <div class="quick-link-left">
-                            <ul>
-                                <li> <a href="#">Over mij</a></li>
-                                <li> <a href="#">Service</a></li>
-                                <li> <a href="#">Portfolio</a></li>
-                                <li> <a href="#">Klanten</a></li>
-                            </ul>
-                        </div>
-                        <div class="quick-link-right">
-                            <ul>
-                                <li> <a href="#">Prijzen</a></li>
-                                <li> <a href="#">Maak contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-6 col-xs-12">
-                <div class="single-footer">
-                    <div class="sin-footer-head">
-                        <h5>Support</h5> </div>
-                    <div class="sin-footer-con">
-                        <div class="sin-sup-link">
-                            <ul>
-                                <li> <a href="#">Support</a></li>
-                                <li> <a href="#">Terms & Service</a></li>
-                                <li> <a href="#">Privace Policy</a></li>
-                                <li> <a href="#">Help</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-footer">
-                    <div class="sin-footer-head">
-                        <h5>Nieuwbrief</h5> </div>
-                    <div class="sin-footer-con">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adips Aiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-                        <div class="subscribe-link">
-                            <input type="text" placeholder="E-mailadres">
-                            <button class="mail-send">Meld je aan!</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="footer-social">
-                    <ul>
-                        <li><a href="https://www.facebook.com/nikki.schilders" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="https://nl.pinterest.com/nikkitje12/" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                        <li><a href="https://twitter.com/NikkiSchilders" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="https://www.instagram.com/nikkischilders/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="text-center font-hairline text-sm mx-auto p-6 bg-red-600 text-red-300">
+        Handcrafted by <a class="hover:underline" target="_blank" href="https://www.webathletes.nl">Webathletes</a> &copy; {{ date('Y') }}
     </div>
-</section>
-<!--Footer Widget area end-->
-
-<!--footer area start-->
-<footer class="footer-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p> &copy; 2018 ‐ Alle rechten voorbehouden. nikkischilders.be </p>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--footer area end-->
-
-<!-- START APPOINTMENT -->
-<div id="quickview-wrapper">
-    <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="get-quate">
-                <div class="get-quate-inner">
-                    <p>MAAK EEN AFSPRAAK</p>
-                    <p class="sub-tit">Type en datum</p>
-                    <select class="float-left">
-                        <option value="service-massage-relax">relax massage</option>
-                        <option value="service-massage-sport">Sport massage</option>
-                        <option value="service-massage-wellness">Wellness massage</option>
-                        <option value="service-massage-hot-stone">Hot stone massage</option>
-                    </select>
-
-                    <input name="date-time" value="" class=" datetimepicker float-right" aria-invalid="false">
-                    <p class="sub-tit">Persoonlijke informatie</p>
-                    <input class="float-left" placeholder="Voornaam" type="text">
-                    <input  type="text" placeholder="Achternaam">
-                    <input class="float-left" placeholder="Telefoon" type="text">
-                    <input  type="text" placeholder="E-mailadres">
-                    <a href="" class="qbuuton">Maak afspraak</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END APPOINTMENT -->
-
-<!-- All js plugins included in this file. -->
-<script src="js/vendor/jquery-1.12.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.mixitup.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/lightbox.js"></script>
-<script src="js/datetime.js"></script>
-<script src="js/waypoints.min.js"></script>
-<script src="js/jquery.meanmenu.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/ajax-mail.js"></script>
-<script src="js/main.js"></script>
-
+    @component('modal', ['name' => 'book',])
+        <h1 class="heading text-3xl mb-8">Boek een sessie</h1>
+        <p>
+            Lorum ipsum
+        </p>
+    @endcomponent
 </body>
 </html>

@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
 
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+.heading {
+    font-family: 'Anton', sans-serif;
+}
 
-// Variables
-@import 'variables';
+.overlay {
+    visibility: hidden;
+}
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+.overlay:target {
+    visibility: visible;
 }
