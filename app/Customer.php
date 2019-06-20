@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Customer extends Model
 {
@@ -13,6 +14,11 @@ class Customer extends Model
     public $lastName;
     public $phoneNumber;
     public $emailAddress;
+
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class);
+    }
 
     public function getPath(): string
     {

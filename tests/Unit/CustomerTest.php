@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Appointment;
 use App\Customer;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -11,6 +12,13 @@ class CustomerTest extends TestCase
 {
 
     use RefreshDatabase, WithFaker;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->stub = new Customer();
+    }
 
     public function testCustomerHasAttributes(): void
     {
@@ -33,6 +41,13 @@ class CustomerTest extends TestCase
         $this->assertSame($lastName, $customer->getLastName());
         $this->assertSame($phoneNumber, $customer->getPhoneNumber());
         $this->assertSame($emailAddress, $customer->getEmailAddress());
+    }
+
+    public function testHasRelationToAppointment(): void
+    {
+        $this->assertInstanceOf(Appointment::class, ($relation = $this->stub->appointments())->getRelated());
+        $this->assertSame('appointments.customer_id', $relation->getQualifiedForeignKeyName());
+        $this->assertSame('customers.id', $relation->getQualifiedParentKeyName());
     }
 
     public function testCustomerFullNameCanBeRetrievedByMethod(): void
