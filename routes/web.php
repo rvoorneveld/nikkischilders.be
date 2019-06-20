@@ -1,7 +1,18 @@
 <?php
-Route::get('/', static function () {
-    return view('layouts.default');
-});
+
+Route::get('/', 'HomeController@index');
+Route::post('/', 'HomeController@store');
+
+//Route::get('/', static function () {
+//    $treatments = \App\Treatment::all();
+//    $availabilities = \App\Availability::all();
+//    return view('layouts.default', compact('treatments', 'availabilities'));
+//});
+//
+//Route::post('/', static function(\App\Http\Requests\BookFormRequest $request){
+//    var_dump($request);exit;
+//    \App\Appointment::create($request);
+//});
 
 Auth::routes();
 
