@@ -27,21 +27,21 @@ class AppointmentTest extends TestCase
     public function testHasRelationToAvailability(): void
     {
         $this->assertInstanceOf(Availability::class, ($relation = $this->stub->availability())->getRelated());
-        $this->assertSame('appointments.availability_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('appointments.availability_id', $relation->getQualifiedForeignKeyName());
         $this->assertSame('availabilities.id', $relation->getQualifiedOwnerKeyName());
     }
 
     public function testHasRelationToCustomer(): void
     {
         $this->assertInstanceOf(Customer::class, ($relation = $this->stub->customer())->getRelated());
-        $this->assertSame('appointments.customer_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('appointments.customer_id', $relation->getQualifiedForeignKeyName());
         $this->assertSame('customers.id', $relation->getQualifiedOwnerKeyName());
     }
 
     public function testHasRelationToTreatment(): void
     {
         $this->assertInstanceOf(Treatment::class, ($relation = $this->stub->treatment())->getRelated());
-        $this->assertSame('appointments.treatment_id', $relation->getQualifiedForeignKey());
+        $this->assertSame('appointments.treatment_id', $relation->getQualifiedForeignKeyName());
         $this->assertSame('treatments.id', $relation->getQualifiedOwnerKeyName());
     }
 
