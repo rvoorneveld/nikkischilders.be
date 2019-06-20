@@ -18,3 +18,11 @@ body {
 .overlay:target {
     visibility: visible;
 }
+
+.icon {
+    @apply fill-current;
+}
+
+.icon:hover {
+    fill: #fed7d7;
+}
