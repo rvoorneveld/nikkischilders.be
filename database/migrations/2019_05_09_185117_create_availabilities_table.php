@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAvailabilitiesTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -17,6 +18,7 @@ class CreateAvailabilitiesTable extends Migration
             $table->increments('id');
             $table->dateTime('dateTime');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,4 +31,5 @@ class CreateAvailabilitiesTable extends Migration
     {
         Schema::dropIfExists('availabilities');
     }
+
 }
