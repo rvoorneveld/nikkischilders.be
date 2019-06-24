@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Availability;
-use App\Customer;
 use App\Http\Requests\BookFormRequest;
+use App\Repositories\CustomersRepository;
 use App\Treatment;
 use Illuminate\Http\Request;
 
@@ -19,14 +19,9 @@ class HomeController extends Controller
         ]);
     }
 
-    public function store(BookFormRequest $request)
+    public function store(BookFormRequest $request, CustomersRepository $customersRepository)
     {
-        $customer = Customer::create([
-            $key = 'firstName' => $request[$key],
-            $key = 'lastName' => $request[$key],
-            $key = 'emailAddress' => $request[$key],
-            $key = 'phoneNumber' => $request[$key],
-        ]);
+        $customer = $customersRepository->createOrUpdate($request);
 
         $customer->appointments()->create([
             'availability_id' => $request['availability'],
@@ -36,6 +31,9 @@ class HomeController extends Controller
         ]);
 
         $availability->delete();
+
+        $request->session()->flash('success.reservation');
+        return redirect('/');
     }
 
 }
