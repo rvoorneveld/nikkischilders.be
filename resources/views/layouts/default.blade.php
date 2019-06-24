@@ -15,6 +15,12 @@
 </head>
 
 <body class="min-h-screen leading-relaxed tracking-wide">
+    @if (Session::has('success.reservation'))
+        @component('notification', ['type' => 'success',])
+            <p class="font-bold">Reservering geslaagd</p>
+            <p class="text-sm">De reservering is met succes ontvangen!</p>
+        @endcomponent
+    @endif
     <nav class="heading flex items-center justify-between flex-wrap bg-blue-900 p-6">
         <a href="/" class="flex items-center flex-shrink-0 text-white mr-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
             <span class="tracking-wide font-black uppercase italic">Nikki</span>
@@ -27,22 +33,18 @@
             </button>
         </div>
         <div class="pt-1 w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-            <div id="script-toggle" class="text-sm lg:flex-grow hidden lg:block">
-                <a href="#sportmassage1" class="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mx-4">
-                    Sportmassage1
+            <div class="script-toggle text-sm lg:flex-grow hidden lg:block">
+                @foreach($treatments as $treatment)
+                <a href="#{{ \Illuminate\Support\Str::slug($title = $treatment->getTitle()) }}" class="block lg:inline-block mt-3 mx-4 lg:mt-0 text-blue-200 hover:text-white text-xl lg:text-base">
+                    {{ $title }}
                 </a>
-                <a href="#sportmassage2" class="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mx-4">
-                    Sportmassage2
-                </a>
-                <a href="#sportmassage3" class="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mx-4">
-                    Sportmassage3
-                </a>
-                <a href="#contact" class="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mx-4">
+                @endforeach
+                <a href="#contact" class="block lg:inline-block mt-3 mx-4 lg:mt-0 text-blue-200 hover:text-white text-xl lg:text-base">
                     Contact
                 </a>
             </div>
-            <div class="hidden lg:block">
-                <a href="#book" class="cursor-pointer rounded font-bold text-white bg-red-500 mx-auto px-12 py-4 hover:bg-red-600">Reserveren</a>
+            <div class="script-toggle hidden mt-12 mb-6 lg:m-0 lg:block">
+                <a href="#book" class="cursor-pointer rounded font-bold text-white bg-red-500 px-12 py-4 hover:bg-red-600 text-xl lg:text-base">Reserveren</a>
             </div>
         </div>
     </nav>
@@ -61,7 +63,7 @@
             </h2>
         </div>
     </div>
-    <div class="bg-red-600 text-white py-6 md:py-16">
+    <div class="bg-red-600 text-white">
         <div class="container flex flex-wrap md:mx-auto">
             <div class="w-full md:w-1/2 md:text-right p-6">
                 <h1 class="text-3xl heading italic font-extrabold uppercase">
@@ -86,52 +88,30 @@
             </div>
         </div>
     </div>
-    <a id="sportmassage1"></a>
-    <div class="flex flex-row-reverse flex-wrap-reverse bg-gray-100 pb-6 md:pb-0">
-        <div class="w-full md:w-1/2 text-left px-4 md:px-8 lg:px-16 text-black hover:bg-gray-200">
-            <h2 class="text-3xl heading italic font-extrabold uppercase mt-4 md:mt-8 lg:mt-16">Sportmassage</h2>
-            <p class="my-6 w-full xl:1/2">
-                Phasellus nibh eros, condimentum ac justo sed, bibendum finibus arcu. In justo eros, accumsan ac mauris ac, suscipit gravida mauris.
-                Nam massa mi, dignissim non elementum sit amet, dictum in sem.
-            </p>
-            <ul class="mb-6 font-bold">
-                <li>usp 1</li>
-                <li>usp 2</li>
-                <li>usp 3</li>
-            </ul>
-            <div class="mx-auto text-center">
-                <a href="#book" class="mx-auto rounded border-2 border-red-500 text-red-500 bg-white m-auto px-10 py-2 hover:bg-red-500 hover:text-white">
-                    Reserveren
-                </a>
+
+    @foreach($treatments as $key => $treatment)
+        <div class="promotion flex flex-row flex-wrap-reverse {{ (1&$key) ? 'flex-row-reverse' : '' }} bg-gray-100">
+            <div class="relative w-full md:w-1/2 text-left px-4 md:px-8 lg:px-16 text-black hover:bg-gray-200">
+                <a id="{{ \Illuminate\Support\Str::slug($title = $treatment->getTitle()) }}"></a>
+                <h2 class="text-3xl heading italic font-extrabold uppercase mt-4 md:mt-8 lg:mt-16">{{ $title }}</h2>
+                <h3 class="text-gray-400 text-2xl">
+                    &euro; <span class="tracking-wider">{{ $treatment->getPrice() }}</span>
+                </h3>
+                <p class="my-6 w-full xl:1/2">
+                    {{ $treatment->getDescription() }}
+                </p>
+                <div class="lg:absolute bottom-0 left-0 right-0 mb-6 lg:mb-10 text-center">
+                    <a href="#book" class="rounded border-2 border-red-500 text-red-500 bg-white px-10 py-2 hover:bg-red-500 hover:text-white">
+                        Reserveren
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <img class="w-full" alt="" src="https://placekitten.com/640/360">
             </div>
         </div>
-        <div class="w-full md:w-1/2">
-            <img class="w-full" alt="" src="https://placekitten.com/640/360">
-        </div>
-    </div>
-    <a id="sportmassage2"></a>
-    <div class="flex flex-row flex-wrap-reverse bg-gray-100 py-6 md:py-0">
-        <div class="w-full md:w-1/2 text-left px-4 md:px-8 lg:px-16 text-black hover:bg-gray-200">
-            <h2 class="text-3xl heading italic font-extrabold uppercase mt-4 md:mt-8 lg:mt-16">Sportmassage</h2>
-            <p class="my-6 w-full xl:1/2">
-                Phasellus nibh eros, condimentum ac justo sed, bibendum finibus arcu. In justo eros, accumsan ac mauris ac, suscipit gravida mauris.
-                Nam massa mi, dignissim non elementum sit amet, dictum in sem.
-            </p>
-            <ul class="mb-6 font-bold">
-                <li>usp 1</li>
-                <li>usp 2</li>
-                <li>usp 3</li>
-            </ul>
-            <div class="mx-auto text-center">
-                <a href="#book" class="rounded border-2 border-red-500 text-red-500 bg-white mx-auto px-10 py-2 hover:bg-red-500 hover:text-white">
-                    Reserveren
-                </a>
-            </div>
-        </div>
-        <div class="w-full md:w-1/2">
-            <img class="w-full" alt="" src="https://placekitten.com/640/360">
-        </div>
-    </div>
+    @endforeach
+
     <a id="contact"></a>
     <div class="mx-auto flex flex-wrap flex-row p-6 bg-red-600">
         <div class="flex-1 p-6">
@@ -143,8 +123,8 @@
                 Ik reageer ASAP!
             </p>
             <p>
-                T: <a href="tel:+32468047774">0468 047 774</a><br>
-                E: <a href="mailto:support@nikkischilders.be">support@nikkischilders.be</a><br>
+                T: <a href="tel:+32468047774" class="hover:underline hover:text-red-200">0468 047 774</a><br>
+                E: <a href="mailto:support@nikkischilders.be" class="hover:underline hover:text-red-200">support@nikkischilders.be</a><br>
             </p>
         </div>
     </div>
@@ -188,7 +168,7 @@
                 </div>
             </div>
         @endif
-        <form class="w-full" method="post" action="/#book">
+        <form class="w-full" method="post" action="/">
             {{ csrf_field() }}
             <div class="flex flex-wrap -mx-3 lg:mb-6">
                 <div class="w-full md:w-1/2 px-3">
@@ -263,20 +243,6 @@
             </div>
         </form>
     @endcomponent
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let classHidden = 'hidden',
-            idToggleButton = 'script-toggle-button',
-            idToggle = 'script-toggle';
-        document.getElementById(idToggleButton).addEventListener('click', function() {
-            let toggleClassList = document.getElementById(idToggle).classList;
-            if (toggleClassList.contains(classHidden)) {
-                toggleClassList.remove(classHidden);
-            } else {
-                toggleClassList.add(classHidden);
-            }
-        });
-    });
-</script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

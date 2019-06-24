@@ -2,6 +2,6 @@
     <a href="#" class="absolute w-full h-full cursor-default"></a>
     <div class="relative w-full h-full md:h-auto md:w-3/4 lg:w-1/2 max-w-3xl p-6 lg:p-12 bg-blue-900">
         {{ $slot }}
-        <a class="absolute top-0 right-0 mr-3 text-3xl font-extrabold no-underline text-white" href="#">&times;</a>
+        <a class="script-modal-overlay-button absolute top-0 right-0 mr-3 text-3xl font-extrabold no-underline text-white" href="#">&times;</a>
     </div>
 </div>

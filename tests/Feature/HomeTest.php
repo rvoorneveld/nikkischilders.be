@@ -120,7 +120,7 @@ class HomeTest extends TestCase
             'dateTime' => $date = Carbon::tomorrow(),
         ]);
 
-        $this->post('/', $expected = [
+        $request = $this->post('/', $expected = [
             'firstName' => $this->faker()->firstName,
             'lastName' => $this->faker()->lastName,
             'emailAddress' => $this->faker()->email,
@@ -148,6 +148,8 @@ class HomeTest extends TestCase
         ]);
 
         $this->assertNotNull($availability->fresh()->deleted_at);
+
+        $request->assertSessionHas('success.reservation');
     }
 
 }
