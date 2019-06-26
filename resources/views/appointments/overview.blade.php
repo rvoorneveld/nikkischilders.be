@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="d-flex align-items-start">
         <h1>{{ __('appointment.title') }}</h1>
         <a class="ml-auto btn btn-primary" href="{{ route('appointments.create') }}">{{ __('appointment.add') }}</a>

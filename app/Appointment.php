@@ -12,6 +12,7 @@ class Appointment extends Model
         'dateTimeStart',
         'dateTimeEnd',
     ];
+
     protected $guarded = [];
 
     public function getPath(): string
