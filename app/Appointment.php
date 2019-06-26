@@ -20,9 +20,9 @@ class Appointment extends Model
         return "/appointments/{$this->id}";
     }
 
-    public function getDateTimeStart(): \DateTime
+    public function getDateTimeStart(): string
     {
-        return $this->getAttribute('dateTimeStart');
+        return $this->getAttribute('dateTimeStart')->format('d-m-Y H:i');
     }
 
     public function availability(): BelongsTo
