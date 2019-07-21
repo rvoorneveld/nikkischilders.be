@@ -6,4 +6,5 @@ return [
     'edit' => 'Edit customer',
     'noResults' => 'No customers to display.',
     'title' => 'Customers',
+    'title_single' => 'Customer',
 ];

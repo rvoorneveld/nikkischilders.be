@@ -3,8 +3,11 @@
 return [
     'add' => 'Add',
     'cancel' => 'Cancel',
+    'date' => 'Date',
+    'delete' => 'Delete',
     'description' => 'Description',
     'duration' => 'Duration',
+    'edit' => 'Edit',
     'emailAddress' => 'Email address',
     'firstName' => 'First name',
     'hour' => 'Hour',

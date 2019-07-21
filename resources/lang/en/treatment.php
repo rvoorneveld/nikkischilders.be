@@ -6,4 +6,5 @@ return [
     'edit' => 'Edit treatment',
     'noResults' => 'No treatments to display.',
     'title' => 'Treatments',
+    'title_single' => 'Treatment',
 ];

@@ -116,17 +116,15 @@ class HomeTest extends TestCase
 
     public function testValidatedBookPostRequestCreatesCustomer(): void
     {
-        $availability = Availability::create([
-            'dateTime' => $date = Carbon::tomorrow(),
-        ]);
-
         $request = $this->post('/', $expected = [
             'firstName' => $this->faker()->firstName,
             'lastName' => $this->faker()->lastName,
             'emailAddress' => $this->faker()->email,
             'phoneNumber' => $this->faker()->phoneNumber,
-            'availability' => $availability->id,
-            'treatment' => $this->faker()->randomNumber,
+            'availability' => ($availability = factory(Availability::class)->create([
+                'dateTime' => $date = Carbon::tomorrow(),
+            ]))->id,
+            'treatment' => factory(Treatment::class)->create()->id,
         ]);
 
         $customerKeys = [
@@ -135,7 +133,7 @@ class HomeTest extends TestCase
             'emailAddress',
         ];
 
-        $this->assertDatabaseHas(($customer = new Customer())->getTable(), array_filter($expected, static function($key) use($customerKeys) {
+        $this->assertDatabaseHas(($customer = new Customer)->getTable(), array_filter($expected, static function($key) use($customerKeys) {
             return in_array($key, $customerKeys, true);
         }));
 

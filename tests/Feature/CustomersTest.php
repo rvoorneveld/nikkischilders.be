@@ -92,7 +92,7 @@ class CustomersTest extends TestCase
 
         $response = $this->get($customersRoute);
         $response->assertStatus(200);
-        $response->assertSee($customer->getName());
+        $response->assertSee(htmlentities($customer->getName()));
     }
 
 }
