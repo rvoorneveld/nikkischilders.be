@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Appointment;
+use App\Http\Controllers\Controller;
 use App\Repositories\AppointmentsRepository;
-use Illuminate\Http\Request;
 
 class AppointmentsController extends Controller
 {
@@ -19,17 +19,17 @@ class AppointmentsController extends Controller
     public function index()
     {
         $appointments = $this->appointmentsRepository->getAllOrderedByDateTimeStartDescending();
-        return view('appointments.overview', compact('appointments'));
+        return view('admin.appointments.overview', compact('appointments'));
     }
 
     public function create()
     {
-        return view('appointments.create');
+        return view('admin.appointments.create');
     }
 
     public function edit(Appointment $appointment)
     {
-        return view('appointments.edit', compact('appointment'));
+        return view('admin.appointments.edit', compact('appointment'));
     }
 
     public function update(Appointment $appointment)

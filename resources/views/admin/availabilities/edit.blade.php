@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.default')
 
 @section('content')
     <h1>{{ __('availability.edit') }} #{{ $availability->id }}</h1>

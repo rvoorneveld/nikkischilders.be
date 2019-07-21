@@ -7,7 +7,6 @@ use App\Http\Requests\BookFormRequest;
 use App\Mail\ReservationComplete;
 use App\Repositories\CustomersRepository;
 use App\Treatment;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Customer;
+use App\Http\Controllers\Controller;
 use App\Repositories\CustomersRepository;
-use Illuminate\Http\Request;
 
 class CustomersController extends Controller
 {
@@ -19,17 +19,17 @@ class CustomersController extends Controller
     public function index()
     {
         $customers = $this->customersRepository->getAllOrderedByLastNameAscending();
-        return view('customers.overview', compact('customers'));
+        return view('admin.customers.overview', compact('customers'));
     }
 
     public function create()
     {
-        return view('customers.create');
+        return view('admin.customers.create');
     }
 
     public function edit(Customer $customer)
     {
-        return view('customers.edit', compact('customer'));
+        return view('admin.customers.edit', compact('customer'));
     }
 
     public function update(Customer $customer)

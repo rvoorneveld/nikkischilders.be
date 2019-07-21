@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Treatment;
 use App\Repositories\TreatmentsRepository;
-use Illuminate\Http\Request;
 
 class TreatmentsController extends Controller
 {
@@ -19,17 +19,17 @@ class TreatmentsController extends Controller
     public function index()
     {
         $treatments = $this->treatmentsRepository->getAllOrderedByTitleAscending();
-        return view('treatments.overview', compact('treatments'));
+        return view('admin.treatments.overview', compact('treatments'));
     }
 
     public function create()
     {
-        return view('treatments.create');
+        return view('admin.treatments.create');
     }
 
     public function edit(Treatment $treatment)
     {
-        return view('treatments.edit', compact('treatment'));
+        return view('admin.treatments.edit', compact('treatment'));
     }
 
     public function update(Treatment $treatment)

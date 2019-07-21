@@ -116,6 +116,7 @@ class HomeTest extends TestCase
 
     public function testValidatedBookPostRequestCreatesCustomer(): void
     {
+        $this->withoutExceptionHandling();
         $request = $this->post('/', $expected = [
             'firstName' => $this->faker()->firstName,
             'lastName' => $this->faker()->lastName,

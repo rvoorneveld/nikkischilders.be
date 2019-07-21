@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin.default')
 
 @section('content')
     <h1>{{ __('customer.edit') }} {{ $customer->getName() }}</h1>

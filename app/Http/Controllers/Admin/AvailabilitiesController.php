@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Availability;
+use App\Http\Controllers\Controller;
 use App\Repositories\AvailabilitiesRepository;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class AvailabilitiesController extends Controller
 {
@@ -20,17 +20,17 @@ class AvailabilitiesController extends Controller
     public function index()
     {
         $availabilities = $this->availabilitiesRepository->getAllOrderedByDateTimeDescending();
-        return view('availabilities.overview', compact('availabilities'));
+        return view('admin.availabilities.overview', compact('availabilities'));
     }
 
     public function create()
     {
-        return view('availabilities.create');
+        return view('admin.availabilities.create');
     }
 
     public function edit(Availability $availability)
     {
-        return view('availabilities.edit', compact('availability'));
+        return view('admin.availabilities.edit', compact('availability'));
     }
 
     public function update(Availability $availability)
