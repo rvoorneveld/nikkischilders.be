@@ -1,13 +1,16 @@
 @extends('layouts.admin.default')
 
+@section('title')
+    {{ __('availability.title') }}
+@endsection
+
+@section('actions')
+    <a href="{{ route('availabilities.create') }}" class="mr-3 text-sm bg-orange-200 text-orange-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('availability.add') }}
+    </a>
+@endsection
+
 @section('content')
-
-    <div class="d-flex align-items-start">
-        <h1>{{ __('availability.title') }}</h1>
-        <a class="ml-auto btn btn-primary" href="{{ route('availabilities.create') }}">{{ __('availability.add') }}</a>
-    </div>
-
-
     <table class="table">
     @forelse($availabilities as $availability)
         <tr>
@@ -24,5 +27,4 @@
         </tr>
     @endforelse
     </table>
-
 @endsection

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile:hover {
+    .profile-dropdown {
+        @apply block;
+    }
+}
+
+.svg-navigation {
+    fill: theme('colors.navigation')
+}
+.navigation li a:hover {
+    .svg-navigation {
+        fill: theme('colors.navigationHover')
+    }
+}

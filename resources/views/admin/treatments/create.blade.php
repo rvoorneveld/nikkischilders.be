@@ -1,9 +1,20 @@
 @extends('layouts.admin.default')
 
-@section('content')
-    <h1>{{ __('treatment.create') }}</h1>
+@section('title')
+    {{ __('treatment.create') }}
+@endsection
 
-    <form method="POST" action="{{ $overviewRoute = route('treatments') }}">
+@section('actions')
+    <a href="javascript:addTreatmentForm.submit();" class="mr-3 text-sm bg-green-200 text-green-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.add') }}
+    </a>
+    <a href="{{ $route = route('treatments') }}" class="mr-3 text-sm bg-red-200 text-red-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.cancel') }}
+    </a>
+@endsection
+
+@section('content')
+    <form name="addTreatmentForm" method="POST" action="{{ $route }}">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -25,9 +36,7 @@
         <div class="field">
             <div class="control">
                 <button type="submit" class="btn btn-primary">{{ __('shared.add') }}</button>
-                <a href="{{ $overviewRoute }}">{{ __('shared.cancel') }}</a>
             </div>
         </div>
     </form>
-
 @endsection

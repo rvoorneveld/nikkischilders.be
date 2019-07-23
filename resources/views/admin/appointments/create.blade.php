@@ -1,17 +1,22 @@
 @extends('layouts.admin.default')
 
+@section('title')
+    {{ __('appointment.create') }}
+@endsection
+
+@section('actions')
+    <a href="javascript:addAppointmentForm.submit();" class="mr-3 text-sm bg-green-200 text-green-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.add') }}
+    </a>
+    <a href="{{ $route = route('appointments') }}" class="mr-3 text-sm bg-red-200 text-red-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.cancel') }}
+    </a>
+@endsection
+
 @section('content')
-    <h1>{{ __('appointment.create') }}</h1>
-
-    <form method="POST" action="{{ $overviewRoute = route('appointments') }}">
+    <form name="addAppointmentForm" method="POST" action="{{ $route }}">
         @csrf
-        <div class="form-row">
-            <!--<div class="form-group col-md-6">
-                <label for="availability_id">{{ __('shared.appointment') }}</label>
-                <select class="form-control" name="availability_id" id="availability_id">
-
-                </select>
-            </div>-->
+        <div>
             <div class="form-group col-md-6">
                 <label for="treatment_id">{{ __('shared.treatment') }}</label>
                 <select class="form-control" name="treatment_id" id="treatment_id">
@@ -27,13 +32,5 @@
                 </select>
             </div>
         </div>
-
-        <div class="field">
-            <div class="control">
-                <button type="submit" class="btn btn-primary">{{ __('shared.add') }}</button>
-                <a href="{{ $overviewRoute }}">{{ __('shared.cancel') }}</a>
-            </div>
-        </div>
     </form>
-
 @endsection

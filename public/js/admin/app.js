@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/js/admin/app.js":
+/*!***********************************!*\
+  !*** ./resources/js/admin/app.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -106,38 +106,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /***/ }),
 
-/***/ "./resources/sass/admin/app.scss":
-/*!***************************************!*\
-  !*** ./resources/sass/admin/app.scss ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!*********************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/admin/app.scss ***!
-  \*********************************************************************************************/
+/***/ 1:
+/*!*****************************************!*\
+  !*** multi ./resources/js/admin/app.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/rickvoorneveld/Sites/nikkischilders.be/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/rickvoorneveld/Sites/nikkischilders.be/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/rickvoorneveld/Sites/nikkischilders.be/resources/sass/admin/app.scss */"./resources/sass/admin/app.scss");
+module.exports = __webpack_require__(/*! /Users/rickvoorneveld/Sites/nikkischilders.be/resources/js/admin/app.js */"./resources/js/admin/app.js");
 
 
 /***/ })

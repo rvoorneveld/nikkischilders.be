@@ -1,12 +1,16 @@
 @extends('layouts.admin.default')
 
+@section('title')
+    {{ __('appointment.title') }}
+@endsection
+
+@section('actions')
+    <a href="{{ route('appointments.create') }}" class="mr-3 text-sm bg-orange-200 text-orange-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('appointment.add') }}
+    </a>
+@endsection
+
 @section('content')
-    <div class="d-flex align-items-start">
-        <h1>{{ __('appointment.title') }}</h1>
-        <a class="ml-auto btn btn-primary" href="{{ route('appointments.create') }}">{{ __('appointment.add') }}</a>
-    </div>
-
-
     <table class="table table-sm table-hover">
         <thead>
             <tr>
@@ -46,5 +50,4 @@
         @endforelse
         </tbody>
     </table>
-
 @endsection

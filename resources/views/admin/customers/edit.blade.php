@@ -1,9 +1,20 @@
 @extends('layouts.admin.default')
 
-@section('content')
-    <h1>{{ __('customer.edit') }} {{ $customer->getName() }}</h1>
+@section('title')
+    {{ __('customer.edit') }} {{ $customer->getName() }}
+@endsection
 
-    <form method="POST">
+@section('actions')
+    <a href="javascript:editCustomersForm.submit();" class="mr-3 text-sm bg-green-200 text-green-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.save') }}
+    </a>
+    <a href="{{ route('customers') }}" class="mr-3 text-sm bg-red-200 text-red-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.cancel') }}
+    </a>
+@endsection
+
+@section('content')
+    <form name="editCustomersForm" method="POST">
         @csrf
         @method('PUT')
         <div class="form-row">
@@ -26,13 +37,5 @@
                 <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="{{ $customer->getPhoneNumber() }}">
             </div>
         </div>
-
-        <div class="field">
-            <div class="control">
-                <button type="submit" class="btn btn-primary">{{ __('shared.save') }}</button>
-                <a href="{{ route('customers') }}">{{ __('shared.cancel') }}</a>
-            </div>
-        </div>
     </form>
-
 @endsection

@@ -1,9 +1,20 @@
 @extends('layouts.admin.default')
 
-@section('content')
-    <h1>{{ __('customer.create') }}</h1>
+@section('title')
+    {{ __('customer.create') }}
+@endsection
 
-    <form method="POST" action="{{ $customersOverviewRoute = route('customers') }}">
+@section('actions')
+    <a href="javascript:addCustomerForm.submit();" class="mr-3 text-sm bg-green-200 text-green-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.add') }}
+    </a>
+    <a href="{{ $route = route('customers') }}" class="mr-3 text-sm bg-red-200 text-red-600 py-2 px-3 rounded-lg font-bold">
+        {{ __('shared.cancel') }}
+    </a>
+@endsection
+
+@section('content')
+    <form name="addCustomerForm" method="POST" action="{{ $route }}">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -25,13 +36,5 @@
                 <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="">
             </div>
         </div>
-
-        <div class="field">
-            <div class="control">
-                <button type="submit" class="btn btn-primary">{{ __('shared.add') }}</button>
-                <a href="{{ $customersOverviewRoute }}">{{ __('shared.cancel') }}</a>
-            </div>
-        </div>
     </form>
-
 @endsection
