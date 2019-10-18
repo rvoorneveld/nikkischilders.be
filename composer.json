@@ -12,7 +12,7 @@
         "eluceo/ical": "^0.15.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
-        "laravel/nova": "^2.2",
+        "laravel/nova": "^2.5",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {

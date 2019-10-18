@@ -14,31 +14,28 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('layouts.default', [
-            'treatments' => Treatment::all(),
-            'availabilities' => Availability::all(),
-        ]);
+        return view('layouts.default');
     }
 
-    public function store(BookFormRequest $request, CustomersRepository $customersRepository)
-    {
-        $customer = $customersRepository->createOrUpdate($request);
-
-        $appointment = $customer->appointments()->create([
-            'availability_id' => $request['availability'],
-            'treatment_id' => $request['treatment'],
-            'dateTimeStart' => ($availability = Availability::find($request['availability']))->getDateTime(),
-            'dateTimeEnd' => $availability->getDateTime()->addMinutes(Availability::DURATION_MINUTES),
-        ]);
-
-        $availability->delete();
-
-        Mail::to($customer->getEmailAddress())->send(
-            new ReservationComplete($appointment)
-        );
-
-        $request->session()->flash('success.reservation');
-        return redirect('/');
-    }
+//    public function store(BookFormRequest $request, CustomersRepository $customersRepository)
+//    {
+//        $customer = $customersRepository->createOrUpdate($request);
+//
+//        $appointment = $customer->appointments()->create([
+//            'availability_id' => $request['availability'],
+//            'treatment_id' => $request['treatment'],
+//            'dateTimeStart' => ($availability = Availability::find($request['availability']))->getDateTime(),
+//            'dateTimeEnd' => $availability->getDateTime()->addMinutes(Availability::DURATION_MINUTES),
+//        ]);
+//
+//        $availability->delete();
+//
+//        Mail::to($customer->getEmailAddress())->send(
+//            new ReservationComplete($appointment)
+//        );
+//
+//        $request->session()->flash('success.reservation');
+//        return redirect('/');
+//    }
 
 }

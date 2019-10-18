@@ -16,10 +16,12 @@ class CreateTreatmentsTable extends Migration
     {
         Schema::create('treatments', static function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id');
             $table->string('title');
-            $table->text('description');
+            $table->integer('minutes');
             $table->float('price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
