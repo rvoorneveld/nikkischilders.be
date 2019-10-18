@@ -16,7 +16,8 @@ class CreateAvailabilitiesTable extends Migration
     {
         Schema::create('availabilities', static function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('dateTime');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->timestamps();
             $table->softDeletes();
         });

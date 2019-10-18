@@ -3,34 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Treatment extends Model
 {
 
+    use SoftDeletes;
+
     protected $guarded = [];
 
-    public $title;
-    public $description;
-    public $price;
-
-    public function getPath(): string
+    public function path(): string
     {
         return "/treatments/{$this->id}";
     }
 
-    public function getTitle(): string
+    public function category(): BelongsTo
     {
-        return $this->getAttribute('title');
-    }
-
-    public function getDescription(): string
-    {
-        return $this->getAttribute('description');
-    }
-
-    public function getPrice(): float
-    {
-        return $this->getAttribute('price');
+        return $this->belongsTo(Category::class);
     }
 
 }
