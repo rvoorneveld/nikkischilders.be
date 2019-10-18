@@ -2,12 +2,14 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\{
+    HasMany,
+    ID,
+    Image,
+    Text,
+    Trix
+};
 
 class Category extends Resource
 {
