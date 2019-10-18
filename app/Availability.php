@@ -11,7 +11,8 @@ class Availability extends Model
     use SoftDeletes;
 
     protected $dates = [
-        'dateTime',
+        'start',
+        'end',
     ];
 
     protected $guarded = [];
