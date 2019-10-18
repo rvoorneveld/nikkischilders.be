@@ -47,6 +47,7 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
+            HasMany::make('Treatments'),
             Text::make('Title')->sortable(),
             Trix::make('Description'),
             Image::make('Image'),
