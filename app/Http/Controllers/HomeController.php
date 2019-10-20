@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Availability;
+use App\Category;
 use App\Http\Requests\BookFormRequest;
 use App\Mail\ReservationComplete;
 use App\Repositories\CustomersRepository;
@@ -14,7 +15,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('layouts.default');
+        $categories = Category::all();
+        return view('layouts.default', compact('categories'));
     }
 
 //    public function store(BookFormRequest $request, CustomersRepository $customersRepository)
