@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use Drobee\NovaSluggable\Slug;
+use Drobee\NovaSluggable\SluggableText;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\{
     HasMany,
@@ -48,7 +50,8 @@ class Category extends Resource
         return [
             ID::make()->sortable(),
             HasMany::make('Treatments'),
-            Text::make('Title')->sortable(),
+            SluggableText::make('Title')->sortable(),
+            Slug::make('Slug')->hideFromIndex(),
             Trix::make('Description'),
             Image::make('Image'),
         ];

@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Category::class, static function (Faker $faker) {
     return [
         'title' => $faker->sentence,
+        'slug' => $faker->slug,
         'description' => $faker->text,
         'image' => $faker->image(),
     ];
