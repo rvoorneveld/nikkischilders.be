@@ -1,0 +1,7 @@
+.overlay {
+    visibility: hidden;
+}
+
+.overlay:target {
+    visibility: visible;
+}

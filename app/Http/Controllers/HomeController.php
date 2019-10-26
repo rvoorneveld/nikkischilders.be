@@ -15,8 +15,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
-        return view('layouts.default', compact('categories'));
+        return view('home.index', [
+            'categories' => Category::all(),
+        ]);
     }
 
 //    public function store(BookFormRequest $request, CustomersRepository $customersRepository)

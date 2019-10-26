@@ -1,4 +1,4 @@
 <?php
 
 Route::get('/', 'HomeController@index');
-//Route::post('/', 'HomeController@store');
+Route::get('/categorie/{categorySlug}', 'CategoryController@index');
