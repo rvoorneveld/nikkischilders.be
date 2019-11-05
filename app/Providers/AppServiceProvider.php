@@ -2,16 +2,20 @@
 
 namespace App\Providers;
 
+use App\Availability;
+use App\Observers\AvailabilityObserver;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Nova\Nova;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
@@ -21,8 +25,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        Nova::serving(static function() {
+            Availability::observe(AvailabilityObserver::class);
+        });
     }
+
 }

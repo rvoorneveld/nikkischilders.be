@@ -93,7 +93,7 @@
             </div>
 
             <div id="vue-calendar">
-                {{ message }}
+
             </div>
 
             <div class="w-full text-center mt-3 lg:mb-6">

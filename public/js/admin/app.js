@@ -84,38 +84,17 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./resources/js/admin/app.js":
-/*!***********************************!*\
-  !*** ./resources/js/admin/app.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-document.addEventListener('DOMContentLoaded', function () {
-  var classHidden = 'hidden',
-      classToggle = 'script-toggle',
-      idToggleButton = 'script-toggle-button';
-  document.getElementById(idToggleButton).addEventListener('click', function () {
-    document.querySelectorAll(".".concat(classToggle)).forEach(function (item) {
-      item.classList.toggle(classHidden);
-    });
-  });
-});
-
-/***/ }),
-
-/***/ 1:
+/******/ ([
+/* 0 */,
+/* 1 */
 /*!*****************************************!*\
   !*** multi ./resources/js/admin/app.js ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/rickvoorneveld/Sites/nikkischilders.be/resources/js/admin/app.js */"./resources/js/admin/app.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/Users/rickvoorneveld/Sites/nikkischilders.be/resources/js/admin/app.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })
-
-/******/ });
+/******/ ]);

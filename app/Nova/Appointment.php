@@ -2,10 +2,12 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\{BelongsTo, BelongsToMany, DateTime, HasOne, ID};
+use Laravel\Nova\Fields\{BelongsTo, BelongsToMany, DateTime, ID, Text};
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Availability extends Resource
+class Appointment extends Resource
 {
 
     /**
@@ -13,7 +15,7 @@ class Availability extends Resource
      *
      * @var string
      */
-    public static $model = \App\Availability::class;
+    public static $model = \App\Appointment::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -41,15 +43,10 @@ class Availability extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsToMany::make('Appointment'),
-            DateTime::make('start')->format($format = 'D MMM YYYY HH:mm'),
-            DateTime::make('end')->format($format)->showOnIndex()->hideWhenCreating()->hideWhenUpdating(),
+            BelongsToMany::make('Availability'),
+            BelongsTo::make('User'),
+            BelongsTo::make('Treatment'),
         ];
-    }
-
-    public function title()
-    {
-        return $this->start.' - '. $this->end;
     }
 
 }

@@ -48,8 +48,8 @@ class ReservationComplete extends Mailable
         $lastName = $customer->getLastName();
 
         $event = (new Event)
-            ->setDtStart($this->appointment->dateTimeStart)
-            ->setDtEnd($this->appointment->dateTimeEnd)
+            ->setDtStart($this->appointment->start)
+            ->setDtEnd($this->appointment->end)
             ->setSummary("{$treatmentName} - {$lastName}, {$firstName}")
             ->setDescription("
 Naam: {$lastName}, {$firstName} (#{$customer->id})

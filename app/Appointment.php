@@ -4,20 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Appointment extends Model
 {
 
     protected $dates = [
-        'dateTimeStart',
-        'dateTimeEnd',
+        'start',
+        'end',
     ];
 
     protected $guarded = [];
 
-    public function availability(): BelongsTo
+    public function availability(): BelongsToMany
     {
-        return $this->BelongsTo(Availability::class);
+        return $this->BelongsToMany(Availability::class);
     }
 
     public function user(): BelongsTo
